@@ -13,7 +13,7 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-5xl md:text-6xl font-bold mb-4">Welcome to Blue Rangers</h2>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8">Building the future of football in New City since 2026</p>
+            <p className="text-xl md:text-2xl text-blue-100 mb-8">Building the future of football in Blue Rangers since 1980s</p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
               <Link to="/join" className="btn-primary-glow inline-block">Join Our Trials</Link>
               <Link to="/about" className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-2 rounded-lg font-semibold transition duration-300 inline-block">Learn More</Link>
