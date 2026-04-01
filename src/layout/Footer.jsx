@@ -44,13 +44,13 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">Contact</h3>
             <p className="text-gray-400 mb-2">
-              <span className="font-semibold">Phone:</span> 123-456-7890
+              <span className="font-semibold">Phone:</span> +254 715 104288
             </p>
             <p className="text-gray-400 mb-2">
-              <span className="font-semibold">Email:</span> info@newcityfc.com
+              <span className="font-semibold">Email:</span> info@bluerangers.co.ke
             </p>
             <p className="text-gray-400">
-              <span className="font-semibold">Location:</span> City Park, New City
+              <span className="font-semibold">Location:</span> Mombasa, Changamwe
             </p>
           </div>
         </div>
