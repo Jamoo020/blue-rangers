@@ -1,23 +1,25 @@
 export default function Team() {
+  const playerImage = (filename) => new URL(`../../images/Players/${filename}`, import.meta.url).href
+
   const positions = {
     'Goalkeepers': [
-      { name: 'Player 1', number: 1, age: 25, bio: 'Experienced goalkeeper', image: '/images/Players/player-1.jpg' }
+      { name: 'Player 1', number: 1, age: 25, bio: 'Experienced goalkeeper', image: playerImage('player-1.jpg') }
     ],
     'Defenders': [
-      { name: 'Player 2', number: 2, age: 22, bio: 'Team captain', image: '/images/Players/player-2.jpg' },
-      { name: 'Player 3', number: 3, age: 23, bio: 'Fast and agile', image: '/images/Players/player-3.jpg' },
-      { name: 'Player 4', number: 4, age: 24, bio: 'Reliable defender', image: '/images/Players/player-4.jpg' },
-      { name: 'Player 5', number: 5, age: 21, bio: 'Young talent', image: '/images/Players/player-5.jpg' }
+      { name: 'Player 2', number: 2, age: 22, bio: 'Team captain', image: playerImage('player-2.jpg') },
+      { name: 'Player 3', number: 3, age: 23, bio: 'Fast and agile', image: playerImage('player-3.jpg') },
+      { name: 'Player 4', number: 4, age: 24, bio: 'Reliable defender', image: playerImage('player-4.jpg') },
+      { name: 'Player 5', number: 5, age: 21, bio: 'Young talent', image: playerImage('player-5.jpg') }
     ],
     'Midfielders': [
-      { name: 'Player 6', number: 6, age: 26, bio: 'Playmaker', image: '/images/Players/player-6.jpg' },
-      { name: 'Player 7', number: 7, age: 22, bio: 'Energetic midfielder', image: '/images/Players/player-7.jpg' },
-      { name: 'Player 8', number: 8, age: 25, bio: 'Skilled right midfielder', image: '/images/Players/player-8.jpg' },
-      { name: 'Player 9', number: 9, age: 23, bio: 'Creative left midfielder', image: '/images/Players/player-9.jpg' }
+      { name: 'Player 6', number: 6, age: 26, bio: 'Playmaker', image: playerImage('player-6.jpg') },
+      { name: 'Player 7', number: 7, age: 22, bio: 'Energetic midfielder', image: playerImage('player-7.jpg') },
+      { name: 'Player 8', number: 8, age: 25, bio: 'Skilled right midfielder', image: playerImage('player-8.jpg') },
+      { name: 'Player 9', number: 9, age: 23, bio: 'Creative left midfielder', image: playerImage('player-9.jpg') }
     ],
     'Forwards': [
-      { name: 'Player 10', number: 10, age: 24, bio: 'Goal scorer', image: '/images/Players/player-10.jpg' },
-      { name: 'Player 11', number: 11, age: 22, bio: 'Rising star', image: '/images/Players/player-11.jpg' }
+      { name: 'Player 10', number: 10, age: 24, bio: 'Goal scorer', image: playerImage('player-10.jpg') },
+      { name: 'Player 11', number: 11, age: 22, bio: 'Rising star', image: playerImage('player-11.jpg') }
     ]
   }
 

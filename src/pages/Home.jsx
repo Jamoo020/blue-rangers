@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import hm1 from '../../images/hm1.jpg'
+import hm2 from '../../images/hm2.jpg'
 
 export default function Home() {
   return (
@@ -21,7 +23,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="relative py-16 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/hm2.jpg)' }}>
+      <section className="relative py-16 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${hm2})` }}>
         <div className="absolute inset-0 bg-black opacity-40"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto">
@@ -61,7 +63,7 @@ export default function Home() {
               { title: 'New Player Signings', desc: 'Welcome our new players!' },
             ].map((news, i) => (
               <div key={i} className="card-hover bg-white p-6 rounded-lg shadow">
-                <img src="/images/hm1.jpg" alt={news.title} className="h-40 w-full object-cover rounded-lg mb-4" />
+                <img src={hm1} alt={news.title} className="h-40 w-full object-cover rounded-lg mb-4" />
                 <h3 className="font-bold text-lg mb-2">{news.title}</h3>
                 <p className="text-gray-600 mb-4">{news.desc}</p>
                 <Link to="/news" className="text-blue-600 font-semibold hover:text-blue-800">Read More →</Link>
