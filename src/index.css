@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:scale-105;
+}
+
+.btn-primary-glow {
+  @apply bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition duration-300;
+}
+
+.section-title {
+  @apply text-4xl font-bold text-white mb-12 relative cursor-pointer;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #3B82F6, #F97316);
+  border-radius: 2px;
+}
+
+.btn-primary-glow {
+  @apply bg-amber-500 hover:bg-amber-600 text-gray-900 px-6 py-2 rounded-xl font-semibold transition duration-300 shadow-lg shadow-amber-500/30;
+}
+
+.main-nav-link {
+  @apply text-white hover:text-blue-300 transition;
+}
+
+.main-nav-link-active {
+  @apply border-b-4 border-blue-400 text-blue-300;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e9ecef;
+  color: #121212;
+}
+
+.page-background {
+  position: relative;
+  background-image: url('/images/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+}
+
+
+.page-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-background > * {
+  position: relative;
+  z-index: 10;
+}
+
+/* Scroll Navigation Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+main {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Vision/Mission section text style (only this part) */
+.about-vision-mission-box h3,
+.about-vision-mission-box p {
+  color: #000 !important;
+  text-shadow: none !important;
+}
+
+/* Smooth scroll behavior for scroll nav */
+html {
+  scroll-behavior: smooth;
+}
