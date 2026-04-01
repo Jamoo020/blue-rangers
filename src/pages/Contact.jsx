@@ -17,7 +17,7 @@ export default function Contact() {
 
               <div>
                 <p className="font-semibold text-blue-600 mb-1">📬 Email</p>
-                <p className="text-gray-700">info@newcityfc.com</p>
+                <p className="text-gray-700">info@bluerangers.com</p>
               </div>
 
               <div>
