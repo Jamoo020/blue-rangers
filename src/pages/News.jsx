@@ -1,12 +1,18 @@
+import { useState } from 'react'
+
 export default function News() {
+  const [selectedItem, setSelectedItem] = useState(null)
+
   const news = [
-    { date: 'March 15', title: 'First Training Session a Success', desc: 'Our inaugural training session brought together 20 enthusiastic players' },
-    { date: 'March 20', title: 'Trials Announced', desc: 'Open trials for new players on April 1st. All ages welcome!' },
-    { date: 'March 22', title: 'New Player Signings', desc: 'Welcome Mark White and Sophie Black to the team!' },
-    { date: 'March 18', title: 'Club Meeting', desc: 'Discussed future plans and sponsorship opportunities' },
-    { date: 'April 5', title: 'Friendly Match Scheduled', desc: 'Our first friendly against Local United' },
-    { date: 'March 25', title: 'Community Activity', desc: 'Participated in local charity event' },
+    { date: 'March 15', title: 'First Training Session a Success', desc: 'Our inaugural training session brought together 20 enthusiastic players', details: 'Great turnout and strong team chemistry. We ran technical drills, small-sided games, and fitness work. Several players stood out for leadership and promise. Coaching staff will provide individualized training plans next week with follow-up assessment. Refreshments and a team photo wrapped the day on a high note. The session lasted over two hours and included a closing talk from the head coach about discipline, nutrition, and upcoming priorities for the season. Everyone left motivated and already asking when the next practice is—this marks the launch of a new era for the team.' },
+    { date: 'March 20', title: 'Trials Announced', desc: 'Open trials for new players on April 1st. All ages welcome!', details: 'Join us at Riverside Park, 10 AM. Bring water, shoes, and enthusiasm. Registration is free.' },
+    { date: 'March 22', title: 'New Player Signings', desc: 'Welcome Mark White and Sophie Black to the team!', details: 'Mark plays midfielder and Sophie is a forward. Both have league experience and are expected to debut soon.' },
+    { date: 'March 18', title: 'Club Meeting', desc: 'Discussed future plans and sponsorship opportunities', details: 'Board voted to pursue two new local sponsors and to organize a summer camp.' },
+    { date: 'April 5', title: 'Friendly Match Scheduled', desc: 'Our first friendly against Local United', details: 'Match at home stadium 6 PM. Tickets available online and at gate.' },
+    { date: 'March 25', title: 'Community Activity', desc: 'Participated in local charity event', details: 'Volunteered in neighborhood cleanup and coaching youth clinics.' },
   ]
+
+  const closeModal = () => setSelectedItem(null)
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -24,12 +30,44 @@ export default function News() {
               <div className="flex-grow">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-600 mb-4">{item.desc}</p>
-                <a href="#" className="text-green-600 font-semibold hover:text-green-800">Read More →</a>
+                <button
+                  type="button"
+                  onClick={() => setSelectedItem(item)}
+                  className="text-green-600 font-semibold hover:text-green-800 text-lg underline"
+                >
+                  Read More →
+                </button>
               </div>
             </div>
           </article>
         ))}
       </div>
+
+      {selectedItem && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm transition-opacity duration-200" role="dialog" aria-modal="true">
+          <div className="w-full max-w-lg rounded-xl bg-white p-6 shadow-2xl relative transform transition-all duration-200 ease-out scale-110 md:scale-100">
+            <button
+              onClick={closeModal}
+              className="absolute right-4 top-4 text-gray-500 hover:text-gray-800"
+              aria-label="Close modal"
+            >
+              ✕
+            </button>
+            <div className="space-y-4">
+              <h3 className="text-3xl font-bold text-gray-900">{selectedItem.title}</h3>
+              <p className="text-base text-gray-600">{selectedItem.date}</p>
+              <p className="text-lg text-gray-800 font-medium">{selectedItem.desc}</p>
+              <p className="text-gray-700 text-base leading-relaxed">{selectedItem.details}</p>
+              <button
+                onClick={closeModal}
+                className="mt-3 rounded-md bg-green-600 px-4 py-2 text-white hover:bg-green-700"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
