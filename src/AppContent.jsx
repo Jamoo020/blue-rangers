@@ -16,6 +16,7 @@ import Contact from './pages/Contact'
 import Schedule from './pages/Schedule'
 import Results from './pages/Results'
 import Standings from './pages/Standings'
+import bgImage from '../images/bg.jpg'
 
 function AppContent() {
   const location = useLocation()
@@ -32,7 +33,7 @@ function AppContent() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <Navigation />
-      <main className="flex-grow page-background">
+      <main className="flex-grow page-background" style={{ backgroundImage: `url(${bgImage})` }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
