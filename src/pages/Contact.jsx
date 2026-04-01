@@ -17,12 +17,12 @@ export default function Contact() {
 
               <div>
                 <p className="font-semibold text-blue-600 mb-1">📬 Email</p>
-                <p className="text-gray-700">info@bluerangers.com</p>
+                <p className="text-gray-700">info@bluerangers.co.ke</p>
               </div>
 
               <div>
                 <p className="font-semibold text-blue-600 mb-1">📍 Location</p>
-                <p className="text-gray-700">City Park, New City</p>
+                <p className="text-gray-700">Mombasa, Changamwe</p>
               </div>
 
               <div>
