@@ -39,37 +39,50 @@ export default function Navigation() {
                 key={item.path}
                 to={item.path}
                 className={`py-2 px-4 rounded-xl text-sm md:text-base font-semibold transition-all duration-300 transform hover:scale-110 hover:cursor-pointer ${isActive(item.path)} hover:text-white`}
+                aria-current={location.pathname === item.path ? 'page' : undefined}
               >
                 {item.label}
               </Link>
             ))}
           </div>
+
           <div className="md:hidden flex items-center justify-between py-3">
             <span className="text-base font-bold">Menu</span>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-expanded={mobileMenuOpen}
+              aria-label={mobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
               className="px-3 py-2 border border-white/20 rounded-lg hover:bg-white/10 transition"
             >
-              {mobileMenuOpen ? '✕ Close' : '☰ Open'}
+              {mobileMenuOpen ? '✕' : '☰'}
             </button>
           </div>
-          {mobileMenuOpen && (
-            <div className="md:hidden pb-4 space-y-2">
+
+          <div className={`fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} md:hidden`} onClick={() => setMobileMenuOpen(false)} />
+
+          <div className={`fixed top-0 left-0 h-full w-64 bg-slate-900 p-4 shadow-2xl transform transition-transform ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}>
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-lg font-bold">Site Menu</span>
+              <button onClick={() => setMobileMenuOpen(false)} className="px-2 py-1 text-white rounded hover:bg-white/10">
+                ✕
+              </button>
+            </div>
+            <div className="space-y-2">
               {navItems.map(item => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className="block py-2 px-3 text-gray-200 rounded-lg hover:bg-white/10 hover:text-white transition"
+                  className={`block py-2 px-2 rounded-lg transition font-medium ${isActive(item.path)} ${location.pathname === item.path ? 'bg-white/10' : 'hover:bg-white/10'}`}
                   onClick={() => setMobileMenuOpen(false)}
+                  aria-current={location.pathname === item.path ? 'page' : undefined}
                 >
                   {item.label}
                 </Link>
               ))}
             </div>
-          )}
+          </div>
         </div>
       </nav>
-
     </>
   )
 }
