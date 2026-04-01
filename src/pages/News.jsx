@@ -4,15 +4,21 @@ export default function News() {
   const [selectedItem, setSelectedItem] = useState(null)
 
   const news = [
-    { date: 'March 15', title: 'First Training Session a Success', desc: 'Our inaugural training session brought together 20 enthusiastic players', details: 'Great turnout and strong team chemistry. We ran technical drills, small-sided games, and fitness work. Several players stood out for leadership and promise. Coaching staff will provide individualized training plans next week with follow-up assessment. Refreshments and a team photo wrapped the day on a high note. The session lasted over two hours and included a closing talk from the head coach about discipline, nutrition, and upcoming priorities for the season. Everyone left motivated and already asking when the next practice is—this marks the launch of a new era for the team.' },
-    { date: 'March 20', title: 'Trials Announced', desc: 'Open trials for new players on April 1st. All ages welcome!', details: 'Join us at Riverside Park, 10 AM. Bring water, shoes, and enthusiasm. Registration is free.' },
-    { date: 'March 22', title: 'New Player Signings', desc: 'Welcome Mark White and Sophie Black to the team!', details: 'Mark plays midfielder and Sophie is a forward. Both have league experience and are expected to debut soon.' },
-    { date: 'March 18', title: 'Club Meeting', desc: 'Discussed future plans and sponsorship opportunities', details: 'Board voted to pursue two new local sponsors and to organize a summer camp.' },
-    { date: 'April 5', title: 'Friendly Match Scheduled', desc: 'Our first friendly against Local United', details: 'Match at home stadium 6 PM. Tickets available online and at gate.' },
-    { date: 'March 25', title: 'Community Activity', desc: 'Participated in local charity event', details: 'Volunteered in neighborhood cleanup and coaching youth clinics.' },
+    { date: 'March 15', title: 'First Training Session a Success', desc: 'Our inaugural training session brought together 20 enthusiastic players', excerpt: 'First session kicks off with great energy and team drills.', details: 'Great turnout and strong team chemistry. We ran technical drills, small-sided games, and fitness work. Several players stood out for leadership and promise. Coaching staff will provide individualized training plans next week with follow-up assessment. Refreshments and a team photo wrapped the day on a high note. The session lasted over two hours and included a closing talk from the head coach about discipline, nutrition, and upcoming priorities for the season. Everyone left motivated and already asking when the next practice is—this marks the launch of a new era for the team.' },
+    { date: 'March 20', title: 'Trials Announced', desc: 'Open trials for new players on April 1st. All ages welcome!', excerpt: 'Open tryouts at Riverside Park, all ages welcome.', details: 'Join us at Riverside Park, 10 AM. Bring water, shoes, and enthusiasm. Registration is free.' },
+    { date: 'March 22', title: 'New Player Signings', desc: 'Welcome Mark White and Sophie Black to the team!', excerpt: 'Signings of two key players to strengthen squad.', details: 'Mark plays midfielder and Sophie is a forward. Both have league experience and are expected to debut soon.' },
+    { date: 'March 18', title: 'Club Meeting', desc: 'Discussed future plans and sponsorship opportunities', excerpt: 'Club meeting highlights next steps, sponsors, and goals.', details: 'Board voted to pursue two new local sponsors and to organize a summer camp.' },
+    { date: 'April 5', title: 'Friendly Match Scheduled', desc: 'Our first friendly against Local United', excerpt: 'Friendly game planned to assess team readiness.', details: 'Match at home stadium 6 PM. Tickets available online and at gate.' },
+    { date: 'March 25', title: 'Community Activity', desc: 'Participated in local charity event', excerpt: 'Team engaged in community service and youth clinics.', details: 'Volunteered in neighborhood cleanup and coaching youth clinics.' },
   ]
 
   const closeModal = () => setSelectedItem(null)
+
+  const getCardText = (item) => {
+    if (item.excerpt) return item.excerpt
+    if (!item.desc) return ''
+    return item.desc.length > 80 ? `${item.desc.slice(0, 77)}...` : item.desc
+  }
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -29,11 +35,11 @@ export default function News() {
               </div>
               <div className="flex-grow">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600 mb-4">{item.desc}</p>
+                <p className="text-gray-600 mb-4">{getCardText(item)}</p>
                 <button
                   type="button"
                   onClick={() => setSelectedItem(item)}
-                  className="text-green-600 font-semibold hover:text-green-800 text-lg underline"
+                  className="text-green-600 font-semibold hover:text-green-800 text-lg underline py-2 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
                   Read More →
                 </button>
@@ -44,8 +50,8 @@ export default function News() {
       </div>
 
       {selectedItem && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm transition-opacity duration-200" role="dialog" aria-modal="true">
-          <div className="w-full max-w-lg rounded-xl bg-white p-6 shadow-2xl relative transform transition-all duration-200 ease-out scale-110 md:scale-100">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-2 sm:p-4 backdrop-blur-sm transition-opacity duration-300" role="dialog" aria-modal="true">
+          <div className="w-full max-w-md sm:max-w-lg rounded-xl bg-white p-5 sm:p-6 shadow-2xl relative transform transition-all duration-200 ease-out scale-110 md:scale-100 max-h-[90vh] overflow-y-auto">
             <button
               onClick={closeModal}
               className="absolute right-4 top-4 text-gray-500 hover:text-gray-800"
