@@ -1,16 +1,10 @@
 import { useState } from 'react'
+import content from '../data/content.json'
 
 export default function News() {
   const [selectedItem, setSelectedItem] = useState(null)
 
-  const news = [
-    { date: 'March 15', title: 'First Training Session a Success', desc: 'Our inaugural training session brought together 20 enthusiastic players', excerpt: 'First session kicks off with great energy and team drills.', details: 'Great turnout and strong team chemistry. We ran technical drills, small-sided games, and fitness work. Several players stood out for leadership and promise. Coaching staff will provide individualized training plans next week with follow-up assessment. Refreshments and a team photo wrapped the day on a high note. The session lasted over two hours and included a closing talk from the head coach about discipline, nutrition, and upcoming priorities for the season. Everyone left motivated and already asking when the next practice is—this marks the launch of a new era for the team.' },
-    { date: 'March 20', title: 'Trials Announced', desc: 'Open trials for new players on April 1st. All ages welcome!', excerpt: 'Open tryouts at Riverside Park, all ages welcome.', details: 'Join us at Riverside Park, 10 AM. Bring water, shoes, and enthusiasm. Registration is free.' },
-    { date: 'March 22', title: 'New Player Signings', desc: 'Welcome Mark White and Sophie Black to the team!', excerpt: 'Signings of two key players to strengthen squad.', details: 'Mark plays midfielder and Sophie is a forward. Both have league experience and are expected to debut soon.' },
-    { date: 'March 18', title: 'Club Meeting', desc: 'Discussed future plans and sponsorship opportunities', excerpt: 'Club meeting highlights next steps, sponsors, and goals.', details: 'Board voted to pursue two new local sponsors and to organize a summer camp.' },
-    { date: 'April 5', title: 'Friendly Match Scheduled', desc: 'Our first friendly against Local United', excerpt: 'Friendly game planned to assess team readiness.', details: 'Match at home stadium 6 PM. Tickets available online and at gate.' },
-    { date: 'March 25', title: 'Community Activity', desc: 'Participated in local charity event', excerpt: 'Team engaged in community service and youth clinics.', details: 'Volunteered in neighborhood cleanup and coaching youth clinics.' },
-  ]
+  const news = content.news
 
   const closeModal = () => setSelectedItem(null)
 
