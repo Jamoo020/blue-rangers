@@ -37,6 +37,8 @@ export default function Footer() {
               <li><Link to="/sponsors" className="hover:text-white transition">Sponsors</Link></li>
               <li><a href="#" className="hover:text-white transition">Facebook</a></li>
               <li><a href="#" className="hover:text-white transition">Twitter</a></li>
+              <li><a href="#" className="hover:text-white transition">Instagram</a></li>
+              <li><a href="#" className="hover:text-white transition">YouTube</a></li>
             </ul>
           </div>
 

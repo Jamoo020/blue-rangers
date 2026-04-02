@@ -24,7 +24,8 @@ export default function About() {
             the community still struggles to capitalize on opportunities. Mombasa youth are wrongly branded as lazy and drug addicts, sidelining responsible young people.
           </p>
           <p className="mt-4 text-gray-700">
-            Blue Rangers Welfare Club seeks to address these issues from its foundation and ensure the Mombasa community receives the respect and dignity it deserves.
+            
+            
           </p>
         </section>
 

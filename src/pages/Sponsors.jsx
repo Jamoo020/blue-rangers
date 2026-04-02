@@ -50,6 +50,37 @@ export default function Sponsors() {
           </div>
         </section>
 
+        {/* Current Partners */}
+        <section className="bg-white p-8 rounded-lg shadow">
+          <h3 className="text-2xl font-bold mb-6">Our Partners</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="bg-gray-200 h-16 w-16 mx-auto rounded-lg flex items-center justify-center mb-2">
+                <span className="text-gray-600 font-bold">Nike</span>
+              </div>
+              <p className="text-sm text-gray-600">Official Kit Partner</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-gray-200 h-16 w-16 mx-auto rounded-lg flex items-center justify-center mb-2">
+                <span className="text-gray-600 font-bold">Adidas</span>
+              </div>
+              <p className="text-sm text-gray-600">Training Equipment</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-gray-200 h-16 w-16 mx-auto rounded-lg flex items-center justify-center mb-2">
+                <span className="text-gray-600 font-bold">Local Bank</span>
+              </div>
+              <p className="text-sm text-gray-600">Financial Partner</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-gray-200 h-16 w-16 mx-auto rounded-lg flex items-center justify-center mb-2">
+                <span className="text-gray-600 font-bold">Sports Co.</span>
+              </div>
+              <p className="text-sm text-gray-600">Beverage Partner</p>
+            </div>
+          </div>
+        </section>
+
         {/* Contact */}
         <section className="bg-gradient-to-r from-green-600 to-orange-500 text-white p-8 rounded-lg text-center">
           <h3 className="text-2xl font-bold mb-4">Interested in Sponsoring?</h3>

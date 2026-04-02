@@ -49,6 +49,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Shop Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="section-title text-center">Official Store</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Kits</h3>
+              <p className="text-gray-600 mb-4">Get your favorite Blue Rangers kit for the season.</p>
+              <a href="#" className="text-blue-600 font-semibold hover:text-blue-800">Shop Now →</a>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Training Gear</h3>
+              <p className="text-gray-600 mb-4">Professional training equipment and apparel.</p>
+              <a href="#" className="text-blue-600 font-semibold hover:text-blue-800">Shop Now →</a>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Memorabilia</h3>
+              <p className="text-gray-600 mb-4">Exclusive items celebrating our history.</p>
+              <a href="#" className="text-blue-600 font-semibold hover:text-blue-800">Shop Now →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Next Match Section */}
+      <section className="py-16 bg-blue-600 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-4">Next Match</h2>
+          <div className="text-6xl font-bold mb-4">VS Local Rivals</div>
+          <p className="text-xl mb-4">Saturday, April 5th - 3:00 PM</p>
+          <p className="text-lg">Home Ground</p>
+          <a href="/schedule" className="inline-block mt-6 bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">View Schedule</a>
+        </div>
+      </section>
+
       {/* Latest News */}
       <section className="py-16 relative" style={{
         backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><defs><pattern id="balls" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="12" fill="none" stroke="%233B82F6" stroke-width="2" opacity="0.25"/></pattern></defs><rect width="120" height="120" fill="%23F9FAFB"/><rect width="120" height="120" fill="url(%23balls)"/></svg>')`,
@@ -101,6 +136,43 @@ export default function Home() {
                 <p className="text-gray-600 font-semibold">{stat.label}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* App Download Section */}
+      <section className="py-16 bg-gray-900 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-4">Download Our App</h2>
+          <p className="text-lg mb-8">Stay connected with Blue Rangers - get live updates, news, and more!</p>
+          <div className="flex justify-center gap-4">
+            <a href="#" className="bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800">App Store</a>
+            <a href="#" className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700">Google Play</a>
+          </div>
+        </div>
+      </section>
+
+      {/* Membership Section */}
+      <section className="py-16 bg-blue-50">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-4">Join Our Fan Community</h2>
+          <p className="text-lg mb-8">Become a member and enjoy exclusive benefits, discounts, and contests.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-8">
+            <div className="bg-white p-6 rounded-lg shadow">
+              <h3 className="font-bold text-lg mb-2">Basic Membership</h3>
+              <p className="text-gray-600 mb-4">Free access to news and updates.</p>
+              <Link to="/join" className="text-blue-600 font-semibold">Sign Up</Link>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow">
+              <h3 className="font-bold text-lg mb-2">Premium Membership</h3>
+              <p className="text-gray-600 mb-4">Exclusive merchandise discounts and priority tickets.</p>
+              <Link to="/join" className="text-blue-600 font-semibold">Learn More</Link>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow">
+              <h3 className="font-bold text-lg mb-2">VIP Membership</h3>
+              <p className="text-gray-600 mb-4">Meet players, behind-the-scenes access, and more.</p>
+              <Link to="/join" className="text-blue-600 font-semibold">Contact Us</Link>
+            </div>
           </div>
         </div>
       </section>
