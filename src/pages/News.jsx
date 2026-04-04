@@ -8,10 +8,13 @@ export default function News() {
   const [error, setError] = useState(null)
   const [source, setSource] = useState('loading')
   const [selectedItem, setSelectedItem] = useState(null)
+  const [notice, setNotice] = useState('')
 
   useEffect(() => {
-    // Try to fetch from Strapi
-    fetch(CONTENT_URL, { cache: 'no-store' })
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 7000)
+
+    fetch(CONTENT_URL, { cache: 'no-store', signal: controller.signal })
       .then(response => {
         if (!response.ok) {
           throw new Error(`API returned ${response.status}`)
@@ -37,12 +40,17 @@ export default function News() {
         }
       })
       .catch(err => {
-        // Use local JSON as fallback
-        console.warn('Strapi fetch failed, using local data:', err.message)
+        const fallbackMessage = err.name === 'AbortError'
+          ? 'Strapi request timed out'
+          : `Strapi request failed: ${err.message}`
+
+        console.warn(fallbackMessage)
+        setNotice(`${fallbackMessage}. Showing local news.`)
         setContent(localNews)
         setSource('local')
         setLoading(false)
       })
+      .finally(() => clearTimeout(timeoutId))
   }, [])
 
   if (loading) return <div className="container mx-auto px-4 py-16"><p>Loading...</p></div>
@@ -68,6 +76,11 @@ export default function News() {
   return (
     <div className="container mx-auto px-4 py-16">
       <h2 className="section-title">News & Updates</h2>
+      {notice && (
+        <div className="mb-6 rounded-lg bg-yellow-50 border border-yellow-300 p-4 text-yellow-900">
+          {notice}
+        </div>
+      )}
 
       <div className="max-w-4xl mx-auto space-y-6">
         {news.map((item, i) => (
