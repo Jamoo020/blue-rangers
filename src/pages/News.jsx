@@ -7,6 +7,7 @@ export default function News() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [source, setSource] = useState('loading')
+  const [selectedItem, setSelectedItem] = useState(null)
 
   useEffect(() => {
     // Try to fetch from Strapi
@@ -53,8 +54,6 @@ export default function News() {
       </div>
     </div>
   )
-
-  const [selectedItem, setSelectedItem] = useState(null)
 
   const news = content.news
 
