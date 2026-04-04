@@ -1,17 +1,24 @@
 {
   "news": [
     {
+      "date": "April 4",
+      "title": "jcvkl",
+      "excerpt": "hjbn",
+      "desc": "Our inaugural training session brought together 20 enthusiastic players",
+      "details": "bcnvnn_/dfhgkjl"
+    },
+    {
       "date": "March 15",
       "title": "First Training Session a Success",
-      "desc": "Our inaugural training session brought together 20 enthusiastic players",
       "excerpt": "First session kicks off with great energy and team drills.",
+      "desc": "Our inaugural training session brought together 20 enthusiastic players",
       "details": "Great turnout and strong team chemistry. We ran technical drills, small-sided games, and fitness work. Several players stood out for leadership and promise. Coaching staff will provide individualized training plans next week with follow-up assessment. Refreshments and a team photo wrapped the day on a high note. The session lasted over two hours and included a closing talk from the head coach about discipline, nutrition, and upcoming priorities for the season. Everyone left motivated and already asking when the next practice is—this marks the launch of a new era for the team."
     },
     {
       "date": "March 20",
       "title": "Trials Announced",
-      "desc": "Open trials for new players on April 1st. All ages welcome!",
       "excerpt": "Open tryouts at Riverside Park, all ages welcome.",
+      "desc": "Open trials for new players on April 1st. All ages welcome!",
       "details": "Join us at Riverside Park, 10 AM. Bring water, shoes, and enthusiasm. Registration is free."
     }
   ],

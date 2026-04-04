@@ -1,7 +1,59 @@
-import { useState } from 'react'
-import content from '../data/content.json'
+import { useState, useEffect } from 'react'
+import { CONTENT_URL } from '../config'
+import localNews from '../data/content.json'
 
 export default function News() {
+  const [content, setContent] = useState({ news: [] })
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const [source, setSource] = useState('loading')
+
+  useEffect(() => {
+    // Try to fetch from Strapi
+    fetch(CONTENT_URL, { cache: 'no-store' })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`API returned ${response.status}`)
+        }
+        return response.json()
+      })
+      .then(json => {
+        const news = json.data?.map(item => ({
+          id: item.id,
+          date: item.attributes.date,
+          title: item.attributes.title,
+          excerpt: item.attributes.excerpt,
+          desc: item.attributes.desc,
+          details: item.attributes.details,
+        })) || []
+        
+        if (news.length > 0) {
+          setContent({ news })
+          setSource('strapi')
+          setLoading(false)
+        } else {
+          throw new Error('No news items from Strapi')
+        }
+      })
+      .catch(err => {
+        // Use local JSON as fallback
+        console.warn('Strapi fetch failed, using local data:', err.message)
+        setContent(localNews)
+        setSource('local')
+        setLoading(false)
+      })
+  }, [])
+
+  if (loading) return <div className="container mx-auto px-4 py-16"><p>Loading...</p></div>
+  if (error) return (
+    <div className="container mx-auto px-4 py-16 space-y-4">
+      <div className="rounded-lg bg-red-100 border border-red-300 p-4 text-red-800">
+        <p className="font-semibold">Error loading news</p>
+        <p>{error}</p>
+      </div>
+    </div>
+  )
+
   const [selectedItem, setSelectedItem] = useState(null)
 
   const news = content.news
