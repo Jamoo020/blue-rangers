@@ -1,0 +1,180 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Setup Strapi Complete",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"setup-complete.js"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Complete Strapi Setup",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"setup-complete.cjs"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Kill Node Processes",
+			"type": "shell",
+			"command": "taskkill",
+			"args": [
+				"/f",
+				"/im",
+				"node.exe"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Complete Strapi Setup",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"setup-complete.cjs"
+			],
+			"isBackground": true,
+			"group": "build"
+		},
+		{
+			"label": "Complete Strapi Setup",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"setup-complete.cjs"
+			],
+			"isBackground": true,
+			"group": "build"
+		},
+		{
+			"label": "Complete Strapi Setup",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"setup-complete.cjs"
+			],
+			"isBackground": true,
+			"group": "build"
+		},
+		{
+			"label": "Complete Strapi Setup",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"setup-complete.cjs"
+			],
+			"isBackground": true,
+			"group": "build"
+		},
+		{
+			"label": "Verify Strapi API",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-Command",
+				"try { $r = Invoke-WebRequest -Uri 'http://localhost:1337/api/news?populate=*' -UseBasicParsing -ErrorAction Stop; $r.StatusCode; $r.Content | ConvertFrom-Json | Select-Object -Property data } catch { $_.Exception.Response.StatusCode }"
+			],
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Check Strapi API Status",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"check-api.cjs"
+			],
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Wait for Strapi",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"wait-for-strapi.cjs"
+			],
+			"isBackground": false,
+			"group": "test"
+		},
+		{
+			"label": "Kill lingering node processes",
+			"type": "shell",
+			"command": "taskkill",
+			"args": [
+				"/F",
+				"/IM",
+				"node.exe"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Complete Strapi Setup with Personal Email",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"setup-complete.cjs"
+			],
+			"isBackground": true,
+			"group": "build"
+		},
+		{
+			"label": "Populate News and Set Permissions",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"populate-news.cjs"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Populate News with Content Manager API",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"populate-news.cjs"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Populate News with Correct API",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"populate-news.cjs"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Set Permissions",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"populate-news.cjs"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Check Production Strapi API",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"check-remote.cjs"
+			],
+			"isBackground": false,
+			"group": "test"
+		}
+	]
+}
