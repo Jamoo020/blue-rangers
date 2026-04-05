@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_items",
+  "info": {
+    "singularName": "news",
+    "pluralName": "news-items",
+    "displayName": "News"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "excerpt": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "string"
+    },
+    "details": {
+      "type": "blocks"
+    }
+  }
+}
