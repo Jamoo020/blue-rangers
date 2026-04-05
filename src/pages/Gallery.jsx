@@ -15,7 +15,8 @@ export default function Gallery() {
       className="min-h-screen bg-cover bg-local"
       style={{
         backgroundImage: `url(${bgImage})`,
-        backgroundPosition: 'center 25%',
+        backgroundPosition: 'center 35%',
+        backgroundSize: 'cover',
         backgroundAttachment: 'scroll',
         backgroundRepeat: 'no-repeat',
       }}
