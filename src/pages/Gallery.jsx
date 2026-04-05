@@ -12,8 +12,13 @@ export default function Gallery() {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-fixed"
-      style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: 'center 25%' }}
+      className="min-h-screen bg-cover bg-local"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundPosition: 'center 25%',
+        backgroundAttachment: 'scroll',
+        backgroundRepeat: 'no-repeat',
+      }}
     >
       <div className="bg-black/70 min-h-screen">
         <div className="container mx-auto px-4 py-16">
