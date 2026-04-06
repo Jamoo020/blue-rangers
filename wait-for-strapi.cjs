@@ -5,7 +5,7 @@ async function check() {
   
   for (let i = 0; i < 24; i++) {
     try {
-      const r = await fetch('http://localhost:1337/api/news?populate=*');
+      const r = await fetch('http://localhost:1337/api/news-items?populate=*');
       if (r.ok) {
         const data = await r.json();
         console.log('✅ Strapi is running!\n');

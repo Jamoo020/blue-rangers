@@ -7,12 +7,9 @@ const tmpPath = path.join(strapiBackendPath, '.tmp');
 
 console.log('🔧 Starting complete setup...\n');
 
-// Step 1: Clean up
-console.log('1️⃣ Cleaning up old database...');
-if (fs.existsSync(tmpPath)) {
-  fs.rmSync(tmpPath, { recursive: true, force: true });
-}
-console.log('   ✓ Database cleaned\n');
+// Step 1: Skip database cleanup to preserve existing data
+console.log('1️⃣ Preserving existing database...');
+console.log('   ✓ Database preserved\n');
 
 // Step 2: Run Strapi build
 console.log('2️⃣ Building Strapi...');
@@ -90,7 +87,7 @@ setTimeout(async () => {
     
     for (let i = 0; i < newsItems.length; i++) {
       const item = newsItems[i];
-      const newsRes = await fetch('http://localhost:1337/api/news', {
+      const newsRes = await fetch('http://localhost:1337/api/news-items', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -105,7 +102,7 @@ setTimeout(async () => {
         const id = newsData.data.id;
         
         // Publish the news item
-        const publishRes = await fetch(`http://localhost:1337/api/news/${id}`, {
+        const publishRes = await fetch(`http://localhost:1337/api/news-items/${id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -162,7 +159,7 @@ setTimeout(async () => {
     
     console.log('✅ Setup complete!\n');
     console.log('📍 Admin panel: http://localhost:1337/admin');
-    console.log('📍 API news: http://localhost:1337/api/news?populate=*');
+    console.log('📍 API news: http://localhost:1337/api/news-items?populate=*');
     console.log('📍 Frontend: http://localhost:5173 (run: npm run dev in root)\n');
     console.log('Email: admin@football.com');
     console.log('Password: Admin12345!@\n');

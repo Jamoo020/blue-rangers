@@ -8,7 +8,7 @@ async function setupNews() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email: 'jamoomwalks@gmail.com',
-        password: 'Nino2506#'
+        password: 'Admin12345!@'
       })
     });
     
@@ -98,12 +98,12 @@ async function setupNews() {
     
     console.log('🎉 Setup complete!\n');
     console.log('📍 Admin panel: http://localhost:1337/admin');
-    console.log('📍 API news: http://localhost:1337/api/news?populate=*');
+    console.log('📍 API news: http://localhost:1337/api/news-items?populate=*');
     console.log('📍 Frontend: http://localhost:5173 (run: npm run dev in root)\n');
     
     // Verify the API works
     console.log('🔍 Verifying API...');
-    const verifyRes = await fetch('http://localhost:1337/api/news?populate=*');
+    const verifyRes = await fetch('http://localhost:1337/api/news-items?populate=*');
     const verifyData = await verifyRes.json();
     
     if (verifyData.data && verifyData.data.length > 0) {
