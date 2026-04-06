@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const Database = require('better-sqlite3');
 
 // Paths
 const strapiBackendPath = path.join(__dirname, 'strapi-backend');
