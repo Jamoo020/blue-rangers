@@ -8,7 +8,8 @@ export default function News() {
   const [error, setError] = useState(null)
   const [source, setSource] = useState('local')
   const [selectedItem, setSelectedItem] = useState(null)
-  const [notice, setNotice] = useState('')
+  const [showPopup, setShowPopup] = useState(false)
+  const [popupMessage, setPopupMessage] = useState('')
 
   useEffect(() => {
     const controller = new AbortController()
@@ -34,13 +35,19 @@ export default function News() {
         if (news.length > 0) {
           setContent({ news })
           setSource('strapi')
-          setNotice('Latest news loaded from Strapi.')
+          setPopupMessage('Latest news loaded from server.')
+          setShowPopup(true)
+          setTimeout(() => setShowPopup(false), 3000)
         } else {
-          setNotice('Showing local news because Strapi returned no items.')
+          setPopupMessage('Showing local news because server returned no items.')
+          setShowPopup(true)
+          setTimeout(() => setShowPopup(false), 3000)
         }
       })
       .catch(() => {
-        setNotice('Showing local news while Strapi is unavailable.')
+        setPopupMessage('Showing local news while server is unavailable.')
+        setShowPopup(true)
+        setTimeout(() => setShowPopup(false), 3000)
       })
       .finally(() => {
         clearTimeout(timeoutId)
@@ -69,12 +76,16 @@ export default function News() {
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <h2 className="section-title">News & Updates</h2>
-      {notice && (
-        <div className="mb-6 rounded-lg bg-yellow-50 border border-yellow-300 p-4 text-yellow-900">
-          {notice}
+      {/* Popup notification */}
+      {showPopup && (
+        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+          <div className="bg-yellow-50 border border-yellow-300 rounded-lg p-4 text-yellow-900 shadow-lg max-w-md mx-auto">
+            <p className="text-center font-medium">{popupMessage}</p>
+          </div>
         </div>
       )}
+
+      <h2 className="section-title">News & Updates</h2>
 
       <div className="max-w-4xl mx-auto space-y-6">
         {news.map((item, i) => (
