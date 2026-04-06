@@ -30,27 +30,23 @@ export default function News() {
           desc: item.attributes.desc,
           details: item.attributes.details,
         })) || []
-        
+
         if (news.length > 0) {
           setContent({ news })
           setSource('strapi')
-          setLoading(false)
         } else {
-          throw new Error('No news items from Strapi')
+          setContent(localNews)
+          setSource('local')
         }
       })
-      .catch(err => {
-        const fallbackMessage = err.name === 'AbortError'
-          ? 'Strapi request timed out'
-          : `Strapi request failed: ${err.message}`
-
-        console.warn(fallbackMessage)
-        setNotice(`${fallbackMessage}. Showing local news.`)
+      .catch(() => {
         setContent(localNews)
         setSource('local')
-        setLoading(false)
       })
-      .finally(() => clearTimeout(timeoutId))
+      .finally(() => {
+        setLoading(false)
+        clearTimeout(timeoutId)
+      })
   }, [])
 
   if (loading) return <div className="container mx-auto px-4 py-16"><p>Loading...</p></div>
