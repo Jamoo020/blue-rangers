@@ -3,16 +3,16 @@ import { CONTENT_URL } from '../config'
 import localNews from '../data/content.json'
 
 export default function News() {
-  const [content, setContent] = useState({ news: [] })
-  const [loading, setLoading] = useState(true)
+  const [content, setContent] = useState(localNews)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  const [source, setSource] = useState('loading')
+  const [source, setSource] = useState('local')
   const [selectedItem, setSelectedItem] = useState(null)
   const [notice, setNotice] = useState('')
 
   useEffect(() => {
     const controller = new AbortController()
-    const timeoutId = setTimeout(() => controller.abort(), 7000)
+    const timeoutId = setTimeout(() => controller.abort(), 2500)
 
     fetch(CONTENT_URL, { cache: 'no-store', signal: controller.signal })
       .then(response => {
@@ -34,17 +34,15 @@ export default function News() {
         if (news.length > 0) {
           setContent({ news })
           setSource('strapi')
+          setNotice('Latest news loaded from Strapi.')
         } else {
-          setContent(localNews)
-          setSource('local')
+          setNotice('Showing local news because Strapi returned no items.')
         }
       })
       .catch(() => {
-        setContent(localNews)
-        setSource('local')
+        setNotice('Showing local news while Strapi is unavailable.')
       })
       .finally(() => {
-        setLoading(false)
         clearTimeout(timeoutId)
       })
   }, [])
