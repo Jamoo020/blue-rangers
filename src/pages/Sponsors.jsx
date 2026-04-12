@@ -54,15 +54,21 @@ export default function Sponsors() {
 
         {/* Current Sponsors */}
         <section className="bg-white p-8 rounded-lg shadow">
-          <h3 className="text-2xl font-bold mb-6">Current Sponsor</h3>
-          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-center">
-            <div className="max-w-xs w-full text-center bg-gray-50 p-6 rounded-xl shadow-sm">
-              <div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-lg bg-white shadow-inner">
-                <img src={motionLogo} alt="Motion Auto Garage Ltd" className="h-full w-full object-contain" />
+          <h3 className="text-2xl font-bold mb-6">Current Sponsors</h3>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {[{
+              name: 'Motion Auto Garage Ltd',
+              logo: motionLogo,
+              description: 'Official team sponsor and community partner.',
+            }].map((sponsor, index) => (
+              <div key={index} className="text-center bg-gray-50 p-6 rounded-xl shadow-sm">
+                <div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-lg bg-white shadow-inner">
+                  <img src={sponsor.logo} alt={sponsor.name} className="h-full w-full object-contain" />
+                </div>
+                <h4 className="text-xl font-semibold text-gray-900">{sponsor.name}</h4>
+                <p className="text-sm text-gray-600 mt-2">{sponsor.description}</p>
               </div>
-              <h4 className="text-xl font-semibold text-gray-900">Motion Auto Garage Ltd</h4>
-              <p className="text-sm text-gray-600 mt-2">Official team sponsor and community partner.</p>
-            </div>
+            ))}
           </div>
         </section>
 
