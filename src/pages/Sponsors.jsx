@@ -1,3 +1,5 @@
+import motionLogo from '../../images/motion.png'
+
 export default function Sponsors() {
   return (
     <div className="container mx-auto px-4 py-16">
@@ -7,7 +9,7 @@ export default function Sponsors() {
         {/* Intro */}
         <section className="bg-gradient-to-r from-green-50 to-green-100 p-8 rounded-lg">
           <h3 className="text-2xl font-bold text-green-900 mb-4">We're Looking for Sponsors!</h3>
-          <p className="text-green-800">Partner with New City FC and gain visibility in the local community. Support youth football development and be part of something special.</p>
+          <p className="text-green-800">Partner with Blue Rangers FC and gain visibility in the local community. Support youth football development and be part of something special.</p>
         </section>
 
         {/* Benefits */}
@@ -50,33 +52,16 @@ export default function Sponsors() {
           </div>
         </section>
 
-        {/* Current Partners */}
+        {/* Current Sponsors */}
         <section className="bg-white p-8 rounded-lg shadow">
-          <h3 className="text-2xl font-bold mb-6">Our Partners</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-gray-200 h-16 w-16 mx-auto rounded-lg flex items-center justify-center mb-2">
-                <span className="text-gray-600 font-bold">Nike</span>
+          <h3 className="text-2xl font-bold mb-6">Current Sponsor</h3>
+          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-center">
+            <div className="max-w-xs w-full text-center bg-gray-50 p-6 rounded-xl shadow-sm">
+              <div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-lg bg-white shadow-inner">
+                <img src={motionLogo} alt="Motion Auto Garage Ltd" className="h-full w-full object-contain" />
               </div>
-              <p className="text-sm text-gray-600">Official Kit Partner</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-gray-200 h-16 w-16 mx-auto rounded-lg flex items-center justify-center mb-2">
-                <span className="text-gray-600 font-bold">Adidas</span>
-              </div>
-              <p className="text-sm text-gray-600">Training Equipment</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-gray-200 h-16 w-16 mx-auto rounded-lg flex items-center justify-center mb-2">
-                <span className="text-gray-600 font-bold">Local Bank</span>
-              </div>
-              <p className="text-sm text-gray-600">Financial Partner</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-gray-200 h-16 w-16 mx-auto rounded-lg flex items-center justify-center mb-2">
-                <span className="text-gray-600 font-bold">Sports Co.</span>
-              </div>
-              <p className="text-sm text-gray-600">Beverage Partner</p>
+              <h4 className="text-xl font-semibold text-gray-900">Motion Auto Garage Ltd</h4>
+              <p className="text-sm text-gray-600 mt-2">Official team sponsor and community partner.</p>
             </div>
           </div>
         </section>
