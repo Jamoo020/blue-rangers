@@ -32,12 +32,13 @@ export default function Sponsors() {
 
         {/* Packages */}
         <section className="bg-white p-8 rounded-lg shadow">
-          <h3 className="text-2xl font-bold mb-8">Sponsorship Packages</h3>
+          <h3 className="text-2xl font-bold mb-8">Community Sponsorship Packages</h3>
+          <p className="text-gray-700 mb-6">Affordable options for local businesses and residents who want to support the team and the neighborhood.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { name: 'Bronze', price: '$100', benefits: ['Logo on website', 'Social mention'] },
-              { name: 'Silver', price: '$500', features: ['Logo on website', 'Social media', 'Event promotion'] },
-              { name: 'Gold', price: '$1000', features: ['Logo on website', 'Social media', 'Kit sponsorship', 'Event booth'] },
+              { name: 'Bronze', price: 'Ksh 2,000', benefits: ['Small business-friendly', 'Logo on website', 'Local social mention'] },
+              { name: 'Silver', price: 'Ksh 5,000', features: ['Logo on website', 'Social media shoutout', 'Event support recognition'] },
+              { name: 'Gold', price: 'Ksh 10,000', features: ['Logo on website', 'Social media', 'Kit support mention', 'Event booth recognition'] },
             ].map((pkg, i) => (
               <div key={i} className="card-hover border-2 border-green-200 p-6 rounded-lg text-center hover:border-green-600">
                 <h4 className="text-lg font-bold text-gray-900 mb-2">{pkg.name}</h4>
