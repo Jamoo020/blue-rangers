@@ -37,7 +37,7 @@ export default function Footer() {
               <li><Link to="/sponsors" className="hover:text-white transition">Sponsors</Link></li>
               <li><a href="#" className="hover:text-white transition">Facebook</a></li>
               <li><a href="#" className="hover:text-white transition">Twitter</a></li>
-              <li><a href="#" className="hover:text-white transition">Instagram</a></li>
+              <li><a href="https://www.instagram.com/bluerangersf/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Instagram</a></li>
               <li><a href="#" className="hover:text-white transition">YouTube</a></li>
             </ul>
           </div>

@@ -72,9 +72,9 @@ export default function Contact() {
               <div>
                 <p className="font-semibold text-blue-600 mb-3">🌐 Follow Us</p>
                 <div className="space-y-2">
-                  <a href="#" className="text-blue-600 hover:text-blue-800 font-semibold">Facebook</a>
-                  <a href="#" className="text-green-600 hover:text-green-800 font-semibold">Twitter</a>
-                  <a href="#" className="text-green-600 hover:text-green-800 font-semibold">Instagram</a>
+                  <a href="#" className="text-blue-600 hover:text-blue-800 font-semibold block">Facebook</a>
+                  <a href="#" className="text-sky-600 hover:text-sky-800 font-semibold block">Twitter</a>
+                  <a href="https://www.instagram.com/bluerangersf/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 font-semibold block">Instagram</a>
                 </div>
               </div>
             </div>
