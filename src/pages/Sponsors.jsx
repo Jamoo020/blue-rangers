@@ -43,7 +43,6 @@ export default function Sponsors() {
                 period: '/year',
                 color: 'bg-green-100 border-green-300',
                 benefits: ['Name on website supporters wall', 'Instagram shoutout', 'Access to fan community (WhatsApp)'],
-                target: 'For fans & individuals who want to support'
               },
               {
                 name: 'Silver',
@@ -52,7 +51,6 @@ export default function Sponsors() {
                 period: '/year',
                 color: 'bg-blue-100 border-blue-300',
                 benefits: ['Logo on website', 'Social media mentions', 'Matchday shoutouts', 'Small banner placement at games'],
-                target: 'For small businesses & local brands'
               },
               {
                 name: 'Gold',
@@ -61,7 +59,6 @@ export default function Sponsors() {
                 period: '/year',
                 color: 'bg-yellow-100 border-yellow-300',
                 benefits: ['Logo on website + all digital posters', 'Regular social media promotion', 'Matchday announcements', 'VIP match access', 'Training kit logo placement'],
-                target: 'For growing businesses that want visibility'
               },
               {
                 name: 'Platinum',
@@ -70,7 +67,6 @@ export default function Sponsors() {
                 period: '/season',
                 color: 'bg-purple-100 border-purple-300',
                 benefits: ['Logo on official team jersey', 'Featured in ALL team content', 'Priority sponsor recognition', 'Media & promotional exposure', 'VIP access to players & events'],
-                target: 'Limited slots (very high value)'
               },
               {
                 name: 'Diamond',
@@ -79,7 +75,6 @@ export default function Sponsors() {
                 period: '/season',
                 color: 'bg-gray-100 border-gray-300',
                 benefits: ['Logo on front of jersey (MAIN SPONSOR)', 'Naming rights (optional)', 'Maximum exposure everywhere', 'Featured in every post, match & event', 'Direct partnership with the club'],
-                target: 'ONLY 1 SLOT AVAILABLE'
               },
             ].map((pkg, i) => (
               <div key={i} className={`card-hover border-2 ${pkg.color} p-6 rounded-lg text-center hover:shadow-lg transition-shadow`}>
@@ -92,7 +87,6 @@ export default function Sponsors() {
                     <li key={j}>• {benefit}</li>
                   ))}
                 </ul>
-                <p className="text-xs text-gray-500 italic">{pkg.target}</p>
               </div>
             ))}
           </div>
@@ -123,7 +117,7 @@ export default function Sponsors() {
           <h3 className="text-2xl font-bold mb-4">Interested in Sponsoring?</h3>
           <p className="mb-6">Get in touch with us today!</p>
           <div className="space-y-2">
-            <p><strong>Email:</strong> sponsors@newcityfc.com</p>
+            <p><strong>Email:</strong> sponsors@bluerangers.co.ke</p>
             <p><strong>Phone:</strong> 123-456-7890</p>
           </div>
         </section>
