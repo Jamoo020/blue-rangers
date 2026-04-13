@@ -1,4 +1,9 @@
+import { useCart } from '../context/CartContext'
+import { useState } from 'react'
+
 export default function Shop() {
+  const { addToCart } = useCart()
+  const [successMessage, setSuccessMessage] = useState(null)
   const shopCategories = [
     {
       id: 'kits',
@@ -80,6 +85,13 @@ export default function Shop() {
   return (
     <div className="min-h-screen bg-gray-50 py-16">
       <div className="container mx-auto px-4">
+        {/* Success Message */}
+        {successMessage && (
+          <div className="mb-6 p-4 bg-green-100 text-green-800 rounded-lg text-center font-semibold">
+            {successMessage}
+          </div>
+        )}
+
         <div className="text-center mb-16">
           <h1 className="section-title">Official Store</h1>
           <p className="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
@@ -117,7 +129,13 @@ export default function Shop() {
                     <p className="text-gray-600 text-sm mb-4">{item.description}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-bold text-blue-600">{item.price}</span>
-                      <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold">
+                      <button 
+                        onClick={() => {
+                          addToCart(item)
+                          setSuccessMessage(`${item.name} added to cart!`)
+                          setTimeout(() => setSuccessMessage(null), 2000)
+                        }}
+                        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold">
                         Add to Cart
                       </button>
                     </div>

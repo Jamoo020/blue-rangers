@@ -1,10 +1,13 @@
 import { BrowserRouter as Router } from 'react-router-dom'
 import AppContent from './AppContent'
+import { CartProvider } from './context/CartContext'
 
 function App() {
   return (
     <Router>
-      <AppContent />
+      <CartProvider>
+        <AppContent />
+      </CartProvider>
     </Router>
   )
 }
