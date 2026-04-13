@@ -14,13 +14,13 @@ export default function Shop() {
           name: 'Home Kit',
           image: 'home-kit',
           price: 'Ksh 1500',
-          description: 'Blue jersey with white shorts'
+          description: 'White tshirt'
         },
         {
           name: 'Away Kit',
           image: 'away-kit',
           price: 'Ksh 1500',
-          description: 'White jersey with blue shorts'
+          description: 'Blue tshirt'
         },
         {
           name: 'Third Kit',
