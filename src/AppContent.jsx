@@ -18,9 +18,8 @@ import Results from './pages/Results'
 import Standings from './pages/Standings'
 import Shop from './pages/Shop'
 import Cart from './pages/Cart'
-import bgImage from '../images/bg.jpg'
-
-function AppContent() {
+import Checkout from './pages/Checkout'
+import bgImage from '../images/bg.jpg'\n\nfunction AppContent() {
   const location = useLocation()
   
   // Enable scroll-based navigation
@@ -51,6 +50,7 @@ function AppContent() {
           <Route path="/standings" element={<Standings />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </main>
       <Footer />
