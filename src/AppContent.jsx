@@ -19,7 +19,9 @@ import Standings from './pages/Standings'
 import Shop from './pages/Shop'
 import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
-import bgImage from '../images/bg.jpg'\n\nfunction AppContent() {
+import bgImage from '../images/bg.jpg'
+
+function AppContent() {
   const location = useLocation()
   
   // Enable scroll-based navigation
