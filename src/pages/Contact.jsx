@@ -70,11 +70,19 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Map Placeholder */}
+      {/* Map Section */}
       <div className="mt-12 bg-white p-8 rounded-lg shadow">
         <h3 className="text-2xl font-bold mb-6">Find Us</h3>
-        <div className="w-full h-80 bg-gradient-to-b from-gray-200 to-gray-300 rounded-lg flex items-center justify-center">
-          <p className="text-gray-600">City Park, New City</p>
+        <div className="w-full h-80 rounded-lg overflow-hidden">
+          <iframe
+            title="Chaani Primary School location"
+            src="https://maps.google.com/maps?q=Chaani%20Primary%20School%2C%20Mombasa%2C%20Kenya&t=&z=17&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="100%"
+            className="border-0"
+            allowFullScreen=""
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
