@@ -76,7 +76,7 @@ export default function Contact() {
         <div className="w-full h-80 rounded-lg overflow-hidden">
           <iframe
             title="Chaani Primary School location"
-            src="https://www.google.com/maps?q=-4.0380139,39.6229786&z=17&output=embed"
+            src="https://www.google.com/maps/place/Chaani+Primary+School/@-4.0386227,39.6185947,17.57z/data=!4m6!3m5!1s0x18406d6f897a9c3b:0xd0e53642abaf2d10!8m2!3d-4.0380139!4d39.6229786!16s%2Fg%2F1ty83vff?entry=ttu&output=embed"
             width="100%"
             height="100%"
             className="border-0"
