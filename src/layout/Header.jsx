@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import CartIcon from '../components/CartIcon'
 
 export default function Header() {
   return (
@@ -19,6 +20,7 @@ export default function Header() {
             </div>
           </Link>
           <div className="flex items-center gap-3 md:gap-4">
+            <CartIcon />
             <span className="inline-flex items-center rounded-full bg-white/20 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-white blur-[0.6px]">
               Official Club Site
             </span>
