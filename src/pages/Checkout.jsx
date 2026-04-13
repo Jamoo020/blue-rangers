@@ -204,7 +204,7 @@ export default function Checkout() {
                 disabled={isProcessing}
                 className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isProcessing ? 'Processing...' : `Complete Payment - $${getTotalPrice().toFixed(2)}`}
+                {isProcessing ? 'Processing...' : `Complete Payment - Ksh ${getTotalPrice().toFixed(0)}`}
               </button>
             </form>
           </div>
@@ -221,7 +221,7 @@ export default function Checkout() {
                       {item.name} × {item.quantity}
                     </span>
                     <span className="font-semibold text-gray-900">
-                      ${(parseFloat(item.price.replace('$', '')) * item.quantity).toFixed(2)}
+                      Ksh {(parseFloat(item.price.replace('Ksh ', '')) * item.quantity).toFixed(0)}
                     </span>
                   </div>
                 ))}
@@ -230,7 +230,7 @@ export default function Checkout() {
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between text-gray-600">
                   <span>Subtotal</span>
-                  <span>${getTotalPrice().toFixed(2)}</span>
+                  <span>Ksh {getTotalPrice().toFixed(0)}</span>
                 </div>
                 <div className="flex justify-between text-gray-600">
                   <span>Shipping</span>
@@ -246,7 +246,7 @@ export default function Checkout() {
                 <div className="flex justify-between">
                   <span className="font-bold text-gray-900">Total</span>
                   <span className="text-2xl font-bold text-blue-600">
-                    ${getTotalPrice().toFixed(2)}
+                    Ksh {getTotalPrice().toFixed(0)}
                   </span>
                 </div>
               </div>

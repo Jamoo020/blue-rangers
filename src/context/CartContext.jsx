@@ -39,7 +39,7 @@ export function CartProvider({ children }) {
 
   const getTotalPrice = () => {
     return cartItems.reduce((total, item) => {
-      const price = parseFloat(item.price.replace('$', ''))
+      const price = parseFloat(item.price.replace('Ksh ', ''))
       return total + price * item.quantity
     }, 0)
   }

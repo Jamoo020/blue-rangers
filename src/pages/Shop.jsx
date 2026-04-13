@@ -13,19 +13,19 @@ export default function Shop() {
         {
           name: 'Home Kit',
           image: 'home-kit',
-          price: '$89.99',
+          price: 'Ksh 1500',
           description: 'Blue jersey with white shorts'
         },
         {
           name: 'Away Kit',
           image: 'away-kit',
-          price: '$89.99',
+          price: 'Ksh 1500',
           description: 'White jersey with blue shorts'
         },
         {
           name: 'Third Kit',
           image: 'third-kit',
-          price: '$79.99',
+          price: 'Ksh 1500',
           description: 'Black jersey with gold accents'
         }
       ]
@@ -38,19 +38,19 @@ export default function Shop() {
         {
           name: 'Training Top',
           image: 'training-top',
-          price: '$54.99',
+          price: 'Ksh 450',
           description: 'Breathable training shirt'
         },
         {
           name: 'Training Shorts',
           image: 'training-shorts',
-          price: '$44.99',
+          price: 'Ksh 450',
           description: 'Lightweight training shorts'
         },
         {
           name: 'Track Suit',
           image: 'tracksuit',
-          price: '$129.99',
+          price: 'Ksh 450',
           description: 'Complete track suit set'
         }
       ]
@@ -63,19 +63,19 @@ export default function Shop() {
         {
           name: 'Team Flag',
           image: 'team-flag',
-          price: '$24.99',
+          price: 'Ksh 200',
           description: 'Official club flag'
         },
         {
           name: 'Signed Jersey',
           image: 'signed-jersey',
-          price: '$199.99',
+          price: 'Ksh 1500',
           description: 'Team signed memorabilia'
         },
         {
           name: 'Club Badge Pins',
           image: 'badge-pins',
-          price: '$14.99',
+          price: 'Ksh 200',
           description: 'Collectible badge set (5-pack)'
         }
       ]
