@@ -16,7 +16,7 @@ import Contact from './pages/Contact'
 import Schedule from './pages/Schedule'
 import Results from './pages/Results'
 import Standings from './pages/Standings'
-import bgImage from '../images/enhanced_team_photo.jpg'
+import bgImage from '../images/bg.jpg'
 
 function AppContent() {
   const location = useLocation()

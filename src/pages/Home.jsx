@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import hm1 from '../../images/hm1.jpg'
-import hm2 from '../../images/hm2.jpg'
+import bgPhoto from '../../images/enhanced_team_photo.jpg'
 
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="relative py-16 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${hm2})` }}>
+      <section className="relative py-16 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgPhoto})` }}>
         <div className="absolute inset-0 bg-black opacity-40"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto">
