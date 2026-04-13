@@ -16,6 +16,7 @@ import Contact from './pages/Contact'
 import Schedule from './pages/Schedule'
 import Results from './pages/Results'
 import Standings from './pages/Standings'
+import Shop from './pages/Shop'
 import bgImage from '../images/bg.jpg'
 
 function AppContent() {
@@ -47,6 +48,7 @@ function AppContent() {
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/results" element={<Results />} />
           <Route path="/standings" element={<Standings />} />
+          <Route path="/shop" element={<Shop />} />
         </Routes>
       </main>
       <Footer />

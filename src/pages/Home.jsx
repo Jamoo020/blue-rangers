@@ -57,17 +57,17 @@ export default function Home() {
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Kits</h3>
               <p className="text-gray-600 mb-4">Get your favorite Blue Rangers kit for the season.</p>
-              <a href="#" className="text-blue-600 font-semibold hover:text-blue-800">Shop Now →</a>
+              <a href="/shop#kits" className="text-blue-600 font-semibold hover:text-blue-800">Shop Now →</a>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Training Gear</h3>
               <p className="text-gray-600 mb-4">Professional training equipment and apparel.</p>
-              <a href="#" className="text-blue-600 font-semibold hover:text-blue-800">Shop Now →</a>
+              <a href="/shop#training" className="text-blue-600 font-semibold hover:text-blue-800">Shop Now →</a>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Memorabilia</h3>
               <p className="text-gray-600 mb-4">Exclusive items celebrating our history.</p>
-              <a href="#" className="text-blue-600 font-semibold hover:text-blue-800">Shop Now →</a>
+              <a href="/shop#memorabilia" className="text-blue-600 font-semibold hover:text-blue-800">Shop Now →</a>
             </div>
           </div>
         </div>
