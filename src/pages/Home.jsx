@@ -23,7 +23,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="relative py-16 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgPhoto})`, backgroundPosition: 'center 25%' }}>
+      <section className="relative py-16 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgPhoto})`, backgroundPosition: 'center 20%' }}>
         <div className="absolute inset-0 bg-black opacity-40"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto">
@@ -126,10 +126,10 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { label: 'Players', value: '50+' },
-              { label: 'Matches Played', value: '15' },
-              { label: 'Goals Scored', value: '87' },
-              { label: 'Trophies', value: '3' },
+              { label: 'Players', value: '11+' },
+              { label: 'Matches Played', value: '0' },
+              { label: 'Goals Scored', value: '0' },
+              { label: 'Trophies', value: 'N/A' },
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-4xl font-bold text-blue-600 mb-2">{stat.value}</div>
