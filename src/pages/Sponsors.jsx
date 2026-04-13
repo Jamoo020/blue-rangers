@@ -39,7 +39,7 @@ export default function Sponsors() {
               {
                 name: 'Bronze',
                 subtitle: 'Community Support',
-                price: 'Ksh 500 – 3,000',
+                price: 'Ksh 500 – 2,000',
                 period: '/year',
                 color: 'bg-green-100 border-green-300',
                 benefits: ['Name on website supporters wall', 'Instagram shoutout', 'Access to fan community (WhatsApp)'],
@@ -48,7 +48,7 @@ export default function Sponsors() {
               {
                 name: 'Silver',
                 subtitle: 'Local Partner',
-                price: 'Ksh 10,000 – 30,000',
+                price: 'Ksh 5,000 – 15,000',
                 period: '/year',
                 color: 'bg-blue-100 border-blue-300',
                 benefits: ['Logo on website', 'Social media mentions', 'Matchday shoutouts', 'Small banner placement at games'],
@@ -57,7 +57,7 @@ export default function Sponsors() {
               {
                 name: 'Gold',
                 subtitle: 'Official Sponsor',
-                price: 'Ksh 50,000 – 100,000',
+                price: 'Ksh 20,000 – 50,000',
                 period: '/year',
                 color: 'bg-yellow-100 border-yellow-300',
                 benefits: ['Logo on website + all digital posters', 'Regular social media promotion', 'Matchday announcements', 'VIP match access', 'Training kit logo placement'],
@@ -66,7 +66,7 @@ export default function Sponsors() {
               {
                 name: 'Platinum',
                 subtitle: 'Kit Sponsor – Premium',
-                price: 'Ksh 150,000+',
+                price: 'Ksh 80,000',
                 period: '/season',
                 color: 'bg-purple-100 border-purple-300',
                 benefits: ['Logo on official team jersey', 'Featured in ALL team content', 'Priority sponsor recognition', 'Media & promotional exposure', 'VIP access to players & events'],
@@ -75,7 +75,7 @@ export default function Sponsors() {
               {
                 name: 'Diamond',
                 subtitle: 'Main Sponsor – Exclusive',
-                price: 'Ksh 100,000',
+                price: 'Ksh 120,000',
                 period: '/season',
                 color: 'bg-gray-100 border-gray-300',
                 benefits: ['Logo on front of jersey (MAIN SPONSOR)', 'Naming rights (optional)', 'Maximum exposure everywhere', 'Featured in every post, match & event', 'Direct partnership with the club'],
