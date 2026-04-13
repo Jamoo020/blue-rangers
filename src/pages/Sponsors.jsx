@@ -75,7 +75,7 @@ export default function Sponsors() {
               {
                 name: 'Diamond',
                 subtitle: 'Main Sponsor – Exclusive',
-                price: 'Ksh 300,000+',
+                price: 'Ksh 100,000',
                 period: '/season',
                 color: 'bg-gray-100 border-gray-300',
                 benefits: ['Logo on front of jersey (MAIN SPONSOR)', 'Naming rights (optional)', 'Maximum exposure everywhere', 'Featured in every post, match & event', 'Direct partnership with the club'],
