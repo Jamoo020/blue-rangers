@@ -22,7 +22,7 @@ export default function Contact() {
 
               <div>
                 <p className="font-semibold text-blue-600 mb-1">📍 Location</p>
-                <p className="text-gray-700">Mombasa, Changamwe</p>
+                <p className="text-gray-700">Chaani Primary School, Mombasa</p>
               </div>
 
               <div>
@@ -76,13 +76,13 @@ export default function Contact() {
         <div className="w-full h-80 rounded-lg overflow-hidden">
           <iframe
             title="Chaani Primary School location"
-            src="https://maps.google.com/maps?q=Chaani%20Primary%20School%2C%20Mombasa%2C%20Kenya&t=&z=17&ie=UTF8&iwloc=&output=embed"
+            src="https://www.google.com/maps?q=-4.0380139,39.6229786&z=17&output=embed"
             width="100%"
             height="100%"
             className="border-0"
-            allowFullScreen=""
+            allowFullScreen
             loading="lazy"
-          />
+          ></iframe>
         </div>
       </div>
     </div>
