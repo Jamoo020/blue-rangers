@@ -3,13 +3,17 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import { productMap } from '../data/shopData'
 
-const images = import.meta.globEager('../images/**/*.{jpg,png,webp}')
-const imageMap = Object.fromEntries(
-  Object.entries(images).map(([path, module]) => {
-    const fileName = path.split('/').pop().replace(/\.(jpg|png|webp)$/i, '')
-    return [fileName.toLowerCase(), module.default]
-  })
-)
+const imageMap = {
+  homekit: new URL('../../images/hm.jpg', import.meta.url).href,
+  awaykit: new URL('../../images/hm1.jpg', import.meta.url).href,
+  thirdkit: new URL('../../images/hm2.webp', import.meta.url).href,
+  trainingtop: new URL('../../images/motion.png', import.meta.url).href,
+  trainingshorts: new URL('../../images/motion.png', import.meta.url).href,
+  tracksuit: new URL('../../images/motion.png', import.meta.url).href,
+  teamflag: new URL('../../images/bg.jpg', import.meta.url).href,
+  signedjersey: new URL('../../images/enhanced_team_photo.jpg', import.meta.url).href,
+  badgepins: new URL('../../images/bg.jpg', import.meta.url).href,
+}
 
 export default function ProductDetail() {
   const { slug } = useParams()

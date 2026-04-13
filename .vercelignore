@@ -1,0 +1,20 @@
+# Ignore local and backend files not needed for frontend deployment
+node_modules/
+strapi-backend/
+.git-strapi-backend-backup/
+.vscode/
+.git/
+dist/
+vercel.json
+.env
+.env.local
+.env.*.local
+README.md
+SETUP.md
+SHOP_IMPLEMENTATION.md
+website_data.md
+package-lock.json
+.gitignore
+.ps1
+*.log
+*.md
