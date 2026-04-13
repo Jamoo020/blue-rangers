@@ -32,22 +32,67 @@ export default function Sponsors() {
 
         {/* Packages */}
         <section className="bg-white p-8 rounded-lg shadow">
-          <h3 className="text-2xl font-bold mb-8">Community Sponsorship Packages</h3>
-          <p className="text-gray-700 mb-6">Affordable options for local businesses and residents who want to support the team and the neighborhood.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <h3 className="text-2xl font-bold mb-8">💼 Sponsorship Packages</h3>
+          <p className="text-gray-700 mb-6">Support your local football team with packages designed for every budget and business size.</p>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
             {[
-              { name: 'Bronze', price: 'Ksh 2,000', benefits: ['Small business-friendly', 'Logo on website', 'Local social mention'] },
-              { name: 'Silver', price: 'Ksh 5,000', features: ['Logo on website', 'Social media shoutout', 'Event support recognition'] },
-              { name: 'Gold', price: 'Ksh 10,000', features: ['Logo on website', 'Social media', 'Kit support mention', 'Event booth recognition'] },
+              {
+                name: 'Bronze',
+                subtitle: 'Community Support',
+                price: 'Ksh 500 – 3,000',
+                period: '/year',
+                color: 'bg-green-100 border-green-300',
+                benefits: ['Name on website supporters wall', 'Instagram shoutout', 'Access to fan community (WhatsApp)'],
+                target: 'For fans & individuals who want to support'
+              },
+              {
+                name: 'Silver',
+                subtitle: 'Local Partner',
+                price: 'Ksh 10,000 – 30,000',
+                period: '/year',
+                color: 'bg-blue-100 border-blue-300',
+                benefits: ['Logo on website', 'Social media mentions', 'Matchday shoutouts', 'Small banner placement at games'],
+                target: 'For small businesses & local brands'
+              },
+              {
+                name: 'Gold',
+                subtitle: 'Official Sponsor',
+                price: 'Ksh 50,000 – 100,000',
+                period: '/year',
+                color: 'bg-yellow-100 border-yellow-300',
+                benefits: ['Logo on website + all digital posters', 'Regular social media promotion', 'Matchday announcements', 'VIP match access', 'Training kit logo placement'],
+                target: 'For growing businesses that want visibility'
+              },
+              {
+                name: 'Platinum',
+                subtitle: 'Kit Sponsor – Premium',
+                price: 'Ksh 150,000+',
+                period: '/season',
+                color: 'bg-purple-100 border-purple-300',
+                benefits: ['Logo on official team jersey', 'Featured in ALL team content', 'Priority sponsor recognition', 'Media & promotional exposure', 'VIP access to players & events'],
+                target: 'Limited slots (very high value)'
+              },
+              {
+                name: 'Diamond',
+                subtitle: 'Main Sponsor – Exclusive',
+                price: 'Ksh 300,000+',
+                period: '/season',
+                color: 'bg-gray-100 border-gray-300',
+                benefits: ['Logo on front of jersey (MAIN SPONSOR)', 'Naming rights (optional)', 'Maximum exposure everywhere', 'Featured in every post, match & event', 'Direct partnership with the club'],
+                target: 'ONLY 1 SLOT AVAILABLE'
+              },
             ].map((pkg, i) => (
-              <div key={i} className="card-hover border-2 border-green-200 p-6 rounded-lg text-center hover:border-green-600">
-                <h4 className="text-lg font-bold text-gray-900 mb-2">{pkg.name}</h4>
-                <p className="text-3xl font-bold text-green-600 mb-4">{pkg.price}/year</p>
-                <ul className="space-y-2 text-gray-600 text-sm">
-                  {(pkg.benefits || pkg.features || []).map((benefit, j) => (
+              <div key={i} className={`card-hover border-2 ${pkg.color} p-6 rounded-lg text-center hover:shadow-lg transition-shadow`}>
+                <h4 className="text-lg font-bold text-gray-900 mb-1">{pkg.name}</h4>
+                <p className="text-sm text-gray-600 mb-2">{pkg.subtitle}</p>
+                <p className="text-2xl font-bold text-green-600 mb-1">{pkg.price}</p>
+                <p className="text-sm text-gray-500 mb-4">{pkg.period}</p>
+                <ul className="space-y-1 text-gray-600 text-xs mb-4">
+                  {pkg.benefits.map((benefit, j) => (
                     <li key={j}>• {benefit}</li>
                   ))}
                 </ul>
+                <p className="text-xs text-gray-500 italic">{pkg.target}</p>
               </div>
             ))}
           </div>
