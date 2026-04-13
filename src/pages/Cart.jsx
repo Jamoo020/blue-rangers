@@ -46,7 +46,7 @@ export default function Cart() {
 
               <div className="divide-y">
                 {cartItems.map((item) => (
-                  <div key={item.name} className="p-6 hover:bg-gray-50 transition">
+                  <div key={`${item.name}-${item.selectedSize}`} className="p-6 hover:bg-gray-50 transition">
                     <div className="flex gap-6">
                       {/* Item Image Placeholder */}
                       <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -67,22 +67,28 @@ export default function Cart() {
                       {/* Quantity & Remove */}
                       <div className="flex flex-col items-end justify-between">
                         <button
-                          onClick={() => removeFromCart(item.name)}
+                          onClick={() => removeFromCart(item.name, item.selectedSize)}
                           className="text-red-600 hover:text-red-800 font-semibold text-sm mb-4"
                         >
                           ✕ Remove
                         </button>
 
+                        {item.selectedSize && (
+                          <div className="text-sm text-gray-500 mb-3">
+                            Size: {item.selectedSize}
+                          </div>
+                        )}
+
                         <div className="flex items-center gap-2 border border-gray-300 rounded-lg">
                           <button
-                            onClick={() => updateQuantity(item.name, item.quantity - 1)}
+                            onClick={() => updateQuantity(item.name, item.selectedSize, item.quantity - 1)}
                             className="px-3 py-1 text-gray-600 hover:bg-gray-100"
                           >
                             −
                           </button>
                           <span className="px-4 py-1 font-semibold">{item.quantity}</span>
                           <button
-                            onClick={() => updateQuantity(item.name, item.quantity + 1)}
+                            onClick={() => updateQuantity(item.name, item.selectedSize, item.quantity + 1)}
                             className="px-3 py-1 text-gray-600 hover:bg-gray-100"
                           >
                             +

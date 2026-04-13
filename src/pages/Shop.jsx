@@ -1,86 +1,22 @@
 import { useCart } from '../context/CartContext'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { shopCategories as shopCategoriesData } from '../data/shopData'
+
+const images = import.meta.globEager('../images/**/*.{jpg,png,webp}')
+const imageMap = Object.fromEntries(
+  Object.entries(images).map(([path, module]) => {
+    const fileName = path.split('/').pop().replace(/\.(jpg|png|webp)$/i, '')
+    return [fileName.toLowerCase(), module.default]
+  })
+)
 
 export default function Shop() {
   const { addToCart } = useCart()
   const [successMessage, setSuccessMessage] = useState(null)
-  const shopCategories = [
-    {
-      id: 'kits',
-      title: 'Kits',
-      description: 'Get your favorite Blue Rangers kit for the season.',
-      items: [
-        {
-          name: 'Home Kit',
-          image: 'home-kit',
-          price: 'Ksh 1500',
-          description: 'White tshirt'
-        },
-        {
-          name: 'Away Kit',
-          image: 'away-kit',
-          price: 'Ksh 1500',
-          description: 'Blue tshirt'
-        },
-        {
-          name: 'Third Kit',
-          image: 'third-kit',
-          price: 'Ksh 1500',
-          description: 'Black jersey with gold accents'
-        }
-      ]
-    },
-    {
-      id: 'training',
-      title: 'Training Gear',
-      description: 'Professional training equipment and apparel.',
-      items: [
-        {
-          name: 'Training Top',
-          image: 'training-top',
-          price: 'Ksh 450',
-          description: 'Breathable training shirt'
-        },
-        {
-          name: 'Training Shorts',
-          image: 'training-shorts',
-          price: 'Ksh 450',
-          description: 'Lightweight training shorts'
-        },
-        {
-          name: 'Track Suit',
-          image: 'tracksuit',
-          price: 'Ksh 450',
-          description: 'Complete track suit set'
-        }
-      ]
-    },
-    {
-      id: 'memorabilia',
-      title: 'Memorabilia',
-      description: 'Exclusive items celebrating our history.',
-      items: [
-        {
-          name: 'Team Flag',
-          image: 'team-flag',
-          price: 'Ksh 200',
-          description: 'Official club flag'
-        },
-        {
-          name: 'Signed Jersey',
-          image: 'signed-jersey',
-          price: 'Ksh 1500',
-          description: 'Team signed memorabilia'
-        },
-        {
-          name: 'Club Badge Pins',
-          image: 'badge-pins',
-          price: 'Ksh 200',
-          description: 'Collectible badge set (5-pack)'
-        }
-      ]
-    }
-  ]
+  const [quantities, setQuantities] = useState({})
+
+  const shopCategories = shopCategoriesData
 
   return (
     <div className="min-h-screen bg-gray-50 py-16">
@@ -111,33 +47,75 @@ export default function Shop() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {category.items.map((item) => (
                 <div
-                  key={item.name}
+                  key={item.slug}
                   className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300"
                 >
                   {/* Image Placeholder */}
                   <div className="h-64 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition duration-300"></div>
-                    <div className="text-center">
-                      <div className="text-5xl mb-2">📦</div>
-                      <p className="text-white text-sm font-semibold">{item.image}</p>
-                    </div>
+                    {imageMap[item.image] ? (
+                      <img
+                        src={imageMap[item.image]}
+                        alt={item.name}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition duration-300"></div>
+                        <div className="text-center">
+                          <div className="text-5xl mb-2">📦</div>
+                          <p className="text-white text-sm font-semibold">{item.image}</p>
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   {/* Item Details */}
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{item.name}</h3>
                     <p className="text-gray-600 text-sm mb-4">{item.description}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-2xl font-bold text-blue-600">{item.price}</span>
-                      <button 
+                    <div className="flex flex-col gap-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-2xl font-bold text-blue-600">{item.price}</span>
+                        <div className="flex items-center gap-2 text-sm text-gray-700">
+                          <label htmlFor={`quantity-${item.name}`} className="font-semibold">
+                            Qty
+                          </label>
+                          <select
+                            id={`quantity-${item.name}`}
+                            value={quantities[item.name] || 1}
+                            onChange={(e) =>
+                              setQuantities((prev) => ({
+                                ...prev,
+                                [item.name]: Number(e.target.value),
+                              }))
+                            }
+                            className="rounded-lg border border-gray-300 px-3 py-2 bg-white"
+                          >
+                            {[...Array(10).keys()].map((value) => (
+                              <option key={value + 1} value={value + 1}>
+                                {value + 1}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                      <button
                         onClick={() => {
-                          addToCart(item)
-                          setSuccessMessage(`${item.name} added to cart!`)
+                          const quantity = quantities[item.name] || 1
+                          addToCart(item, quantity)
+                          setSuccessMessage(`${item.name} added to cart (${quantity})!`)
                           setTimeout(() => setSuccessMessage(null), 2000)
                         }}
-                        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold">
+                        className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold"
+                      >
                         Add to Cart
                       </button>
+                      <Link
+                        to={`/product/${item.slug}`}
+                        className="mt-3 inline-block text-center w-full bg-gray-100 text-gray-900 px-4 py-2 rounded-lg hover:bg-gray-200 transition duration-300 font-semibold"
+                      >
+                        View Details
+                      </Link>
                     </div>
                   </div>
                 </div>

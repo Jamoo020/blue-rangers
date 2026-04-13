@@ -5,29 +5,37 @@ const CartContext = createContext()
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([])
 
-  const addToCart = (item) => {
+  const getCartKey = (item) => `${item.name}::${item.selectedSize ?? 'default'}`
+
+  const addToCart = (item, quantity = 1) => {
     setCartItems((prevItems) => {
-      const existingItem = prevItems.find((i) => i.name === item.name)
+      const existingItem = prevItems.find(
+        (i) => getCartKey(i) === getCartKey(item)
+      )
       if (existingItem) {
         return prevItems.map((i) =>
-          i.name === item.name ? { ...i, quantity: i.quantity + 1 } : i
+          getCartKey(i) === getCartKey(item)
+            ? { ...i, quantity: i.quantity + quantity }
+            : i
         )
       }
-      return [...prevItems, { ...item, quantity: 1 }]
+      return [...prevItems, { ...item, quantity }]
     })
   }
 
-  const removeFromCart = (itemName) => {
-    setCartItems((prevItems) => prevItems.filter((i) => i.name !== itemName))
+  const removeFromCart = (itemName, selectedSize = 'default') => {
+    setCartItems((prevItems) =>
+      prevItems.filter((i) => getCartKey(i) !== `${itemName}::${selectedSize}`)
+    )
   }
 
-  const updateQuantity = (itemName, quantity) => {
+  const updateQuantity = (itemName, selectedSize = 'default', quantity) => {
     if (quantity <= 0) {
-      removeFromCart(itemName)
+      removeFromCart(itemName, selectedSize)
     } else {
       setCartItems((prevItems) =>
         prevItems.map((i) =>
-          i.name === itemName ? { ...i, quantity } : i
+          getCartKey(i) === `${itemName}::${selectedSize}` ? { ...i, quantity } : i
         )
       )
     }

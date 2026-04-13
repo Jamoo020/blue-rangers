@@ -19,6 +19,7 @@ import Standings from './pages/Standings'
 import Shop from './pages/Shop'
 import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
+import ProductDetail from './pages/ProductDetail'
 import bgImage from '../images/bg.jpg'
 
 function AppContent() {
@@ -51,6 +52,7 @@ function AppContent() {
           <Route path="/results" element={<Results />} />
           <Route path="/standings" element={<Standings />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/product/:slug" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
