@@ -56,7 +56,7 @@ export default function Contact() {
             <div className="space-y-6">
               <div>
                 <p className="font-semibold text-blue-600 mb-1">📂 Phone</p>
-                <p className="text-gray-700">123-456-7890</p>
+                <p className="text-gray-700">+254 715 104288</p>
               </div>
 
               <div>
