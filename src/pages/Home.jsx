@@ -23,7 +23,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="relative py-16 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgPhoto})` }}>
+      <section className="relative py-16 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgPhoto})`, backgroundPosition: 'center 25%' }}>
         <div className="absolute inset-0 bg-black opacity-40"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto">
