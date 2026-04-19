@@ -1,5 +1,11 @@
 import bgImage from '../../images/enhanced_team_photo.jpg'
 
+const communityImages = Object.entries(
+  import.meta.globEager('../../images/Community Event/*.{jpeg,jpg,png,webp}')
+)
+  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+  .map(([, module]) => module.default)
+
 export default function Gallery() {
   const images = [
     { title: 'Training Session' },
@@ -40,6 +46,23 @@ export default function Gallery() {
               </div>
             ))}
           </div>
+
+          {communityImages.length > 0 && (
+            <div className="mt-12">
+              <h3 className="section-title text-white">Community Event Photos</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                {communityImages.map((src, idx) => (
+                  <div key={idx} className="overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-white/5">
+                    <img
+                      src={src}
+                      alt={`Community event ${idx + 1}`}
+                      className="h-56 w-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
