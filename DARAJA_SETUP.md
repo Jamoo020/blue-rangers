@@ -159,6 +159,8 @@ Or for development:
 VITE_API_URL=http://localhost:5000/api
 ```
 
+If your frontend is deployed on Vercel, set `VITE_API_URL` in Vercel environment variables to your public backend URL. A Vercel-hosted site cannot call `http://localhost:5000` in the browser.
+
 The React checkout page will automatically use this URL.
 
 ---
