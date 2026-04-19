@@ -39,14 +39,25 @@ const sections = [
 
 export default function Gallery() {
   const [activeSection, setActiveSection] = useState('community-event')
+  const [lightboxIndex, setLightboxIndex] = useState(null)
+  const activeImages = activeSection === 'community-event' ? communityImages : []
 
-  function scrollToSection(id) {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      setActiveSection(id)
-    }
+  function openLightbox(index) {
+    setLightboxIndex(index)
   }
+
+  function closeLightbox() {
+    setLightboxIndex(null)
+  }
+
+  function showPrevious() {
+    setLightboxIndex((current) => (current === 0 ? activeImages.length - 1 : current - 1))
+  }
+
+  function showNext() {
+    setLightboxIndex((current) => (current === activeImages.length - 1 ? 0 : current + 1))
+  }
+
   return (
     <div
       className="min-h-screen bg-cover bg-local"
@@ -94,14 +105,19 @@ export default function Gallery() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mt-10">
             {activeSection === 'community-event' ? (
-              communityImages.map((src, idx) => (
-                <div key={idx} className="overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-white/5">
+              activeImages.map((src, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => openLightbox(idx)}
+                  className="overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-white/5 focus:outline-none"
+                >
                   <img
                     src={src}
                     alt={`Community event ${idx + 1}`}
                     className="h-56 w-full object-cover transition-transform duration-300 hover:scale-105"
                   />
-                </div>
+                </button>
               ))
             ) : (
               <div className="col-span-full rounded-3xl border border-dashed border-white/30 bg-white/5 p-10 text-white/80">
@@ -110,6 +126,45 @@ export default function Gallery() {
               </div>
             )}
           </div>
+
+          {lightboxIndex !== null && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4">
+              <div className="relative w-full max-w-5xl">
+                <button
+                  type="button"
+                  onClick={closeLightbox}
+                  className="absolute right-4 top-4 rounded-full bg-white/20 p-3 text-white transition hover:bg-white/30"
+                >
+                  ✕
+                </button>
+
+                <img
+                  src={activeImages[lightboxIndex]}
+                  alt={`Community event ${lightboxIndex + 1}`}
+                  className="mx-auto max-h-[80vh] w-full rounded-3xl object-contain"
+                />
+
+                <button
+                  type="button"
+                  onClick={showPrevious}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 px-4 py-3 text-2xl text-white transition hover:bg-white/30"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  onClick={showNext}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 px-4 py-3 text-2xl text-white transition hover:bg-white/30"
+                >
+                  ›
+                </button>
+
+                <div className="mt-4 text-center text-white/80">
+                  <p>Community Event {lightboxIndex + 1} of {activeImages.length}</p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
