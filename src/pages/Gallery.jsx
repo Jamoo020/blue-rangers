@@ -1,10 +1,31 @@
 import bgImage from '../../images/enhanced_team_photo.jpg'
+import communityImage1 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.44.28 (1).jpeg'
+import communityImage2 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.44.28 (2).jpeg'
+import communityImage3 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.44.28 (3).jpeg'
+import communityImage4 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.44.28.jpeg'
+import communityImage5 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.44.29.jpeg'
+import communityImage6 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.45.56 (1).jpeg'
+import communityImage7 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.45.56.jpeg'
+import communityImage8 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.46.03 (1).jpeg'
+import communityImage9 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.46.03.jpeg'
+import communityImage10 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.46.04.jpeg'
+import communityImage11 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.46.05.jpeg'
+import communityImage12 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.46.06.jpeg'
 
-const communityImages = Object.entries(
-  import.meta.globEager('../../images/Community Event/*.{jpeg,jpg,png,webp}')
-)
-  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
-  .map(([, module]) => module.default)
+const communityImages = [
+  communityImage1,
+  communityImage2,
+  communityImage3,
+  communityImage4,
+  communityImage5,
+  communityImage6,
+  communityImage7,
+  communityImage8,
+  communityImage9,
+  communityImage10,
+  communityImage11,
+  communityImage12,
+]
 
 export default function Gallery() {
   const images = [
