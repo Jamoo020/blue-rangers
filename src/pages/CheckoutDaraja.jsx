@@ -1,6 +1,20 @@
-import CheckoutDaraja from './CheckoutDaraja'
+import { useCart } from '../context/CartContext'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
-export default CheckoutDaraja
+export default function CheckoutDaraja() {
+  const { cartItems, getTotalPrice, clearCart } = useCart()
+  const [isProcessing, setIsProcessing] = useState(false)
+  const [error, setError] = useState(null)
+  const [paymentStatus, setPaymentStatus] = useState(null)
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+
+  const handlePayment = async (e) => {
     e.preventDefault()
     setError(null)
     setIsProcessing(true)
@@ -117,13 +131,13 @@ export default CheckoutDaraja
   return (
     <div className="min-h-screen bg-gray-50 py-16">
       <div className="container mx-auto px-4">
-        <h1 className="section-title">Checkout</h1>
+        <h1 className="section-title">Checkout - M-Pesa Payment</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 max-w-5xl mx-auto">
           {/* Checkout Form */}
           <div className="lg:col-span-2">
             <form onSubmit={handlePayment} className="space-y-6">
-              {/* Customer Information */}
+              {/* Billing Information */}
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h2 className="text-xl font-bold text-gray-900 mb-4">
                   Customer Information
@@ -189,7 +203,8 @@ export default CheckoutDaraja
                       disabled={isProcessing}
                     />
                     <p className="text-xs text-gray-500 mt-1">
-                      Enter the number registered with M-Pesa. You'll receive an STK prompt on this phone.
+                      Enter the number registered with M-Pesa. You'll receive an STK prompt on this
+                      phone.
                     </p>
                   </div>
                 </div>
@@ -270,53 +285,42 @@ export default CheckoutDaraja
             </form>
           </div>
 
-          {/* Order Summary Sidebar */}
+          {/* Order Summary */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg shadow-md p-6 sticky top-20">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Order Summary</h2>
+            <div className="bg-white rounded-lg shadow-md p-6 sticky top-4">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">Order Summary</h2>
 
-              <div className="space-y-3 mb-6 pb-6 border-b max-h-64 overflow-y-auto">
-                {cartItems.map((item) => (
-                  <div key={item.name} className="flex justify-between text-sm">
-                    <span className="text-gray-600">
-                      {item.name} × {item.quantity}
-                    </span>
-                    <span className="font-semibold text-gray-900">
-                      Ksh {(parseFloat(item.price.replace('Ksh ', '')) * item.quantity).toFixed(0)}
-                    </span>
+              <div className="space-y-3 mb-6 max-h-96 overflow-y-auto">
+                {cartItems.map((item, idx) => (
+                  <div key={idx} className="flex justify-between items-start pb-3 border-b">
+                    <div>
+                      <p className="font-semibold text-gray-900">{item.name}</p>
+                      {item.selectedSize && (
+                        <p className="text-xs text-gray-500">Size: {item.selectedSize}</p>
+                      )}
+                      <p className="text-xs text-gray-500">Qty: {item.quantity}</p>
+                    </div>
+                    <p className="text-gray-900 font-semibold">
+                      {(parseFloat(item.price.replace('Ksh ', '')) * item.quantity).toFixed(2)}
+                    </p>
                   </div>
                 ))}
               </div>
 
-              <div className="space-y-3 mb-6">
-                <div className="flex justify-between text-gray-600">
-                  <span>Subtotal</span>
-                  <span>Ksh {getTotalPrice().toFixed(0)}</span>
-                </div>
-                <div className="flex justify-between text-gray-600">
-                  <span>Shipping</span>
-                  <span>$0.00</span>
-                </div>
-                <div className="flex justify-between text-gray-600">
-                  <span>Tax</span>
-                  <span>$0.00</span>
-                </div>
-              </div>
-
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <div className="flex justify-between">
-                  <span className="font-bold text-gray-900">Total</span>
-                  <span className="text-2xl font-bold text-blue-600">
-                    Ksh {getTotalPrice().toFixed(0)}
+              <div className="border-t pt-4">
+                <div className="flex justify-between mb-4">
+                  <span className="text-lg font-bold text-gray-900">Total:</span>
+                  <span className="text-lg font-bold text-blue-600">
+                    Ksh {getTotalPrice().toFixed(2)}
                   </span>
                 </div>
               </div>
 
               <Link
-                to="/cart"
-                className="inline-block mt-6 text-blue-600 hover:text-blue-800 font-semibold text-sm"
+                to="/shop"
+                className="block text-center text-blue-600 hover:text-blue-700 text-sm mt-4"
               >
-                ← Back to Cart
+                Continue Shopping
               </Link>
             </div>
           </div>
