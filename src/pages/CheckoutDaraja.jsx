@@ -1,6 +1,6 @@
 import { useCart } from '../context/CartContext'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function CheckoutDaraja() {
   const { cartItems, getTotalPrice, clearCart } = useCart()
@@ -11,8 +11,18 @@ export default function CheckoutDaraja() {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
+  const [configError, setConfigError] = useState(null)
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+  const envApiUrl = import.meta.env.VITE_API_URL
+  const API_URL = envApiUrl || (import.meta.env.MODE !== 'production' ? 'http://localhost:5000/api' : null)
+
+  useEffect(() => {
+    if (!API_URL) {
+      setConfigError(
+        'Production checkout requires VITE_API_URL to be set. Set it in your deployment environment and reload.'
+      )
+    }
+  }, [API_URL])
 
   const handlePayment = async (e) => {
     e.preventDefault()
@@ -121,6 +131,24 @@ export default function CheckoutDaraja() {
               >
                 Return to Shop
               </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (configError) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto mt-12 bg-white p-10 rounded-lg shadow-md">
+            <h1 className="section-title">Checkout Configuration Error</h1>
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mt-6">
+              <p className="text-yellow-800 font-semibold">{configError}</p>
+              <p className="text-sm text-gray-600 mt-3">
+                Set <code className="font-mono">VITE_API_URL</code> in your deployment environment and reload the page.
+              </p>
             </div>
           </div>
         </div>

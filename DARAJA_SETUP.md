@@ -143,6 +143,21 @@ You should see an STK Push prompt appear on M-Pesa (if configured in sandbox)
 3. Create `.env` file in the `server` folder
 4. In CPanel, create a Node.js App pointing to `server/server.js`
 
+### Quick public test with ngrok (no hosting required)
+If you want to test the Vercel frontend with a public backend before full deployment:
+
+1. Run your backend locally with `npm run dev` from the `server` folder.
+2. Open a second terminal and run `npx ngrok http 5000`.
+3. Copy the generated HTTPS tunnel URL (for example `https://abcd1234.ngrok.app`).
+4. Set your backend env values:
+   - `CALLBACK_URL=https://abcd1234.ngrok.app/api/payment/callback`
+   - `FRONTEND_URL=http://localhost:3000,https://blue-rangers.vercel.app`
+5. Set the frontend env:
+   - `VITE_API_URL=https://abcd1234.ngrok.app/api`
+6. Reload the frontend and test the checkout.
+
+> Note: ngrok is only for testing. For real production, deploy the backend to a public host and use a stable domain.
+
 ---
 
 ## 🔄 Step 5: Update Frontend Config
