@@ -49,7 +49,7 @@ const sections = [
 ]
 
 export default function Gallery() {
-  const [activeSection, setActiveSection] = useState('community-event')
+  const [activeSection, setActiveSection] = useState('training-session')
   const [lightboxIndex, setLightboxIndex] = useState(null)
   const activeImages =
     activeSection === 'community-event'
