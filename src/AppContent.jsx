@@ -1,6 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
-import { useScrollNavigation } from './hooks/useScrollNavigation'
 import Header from './layout/Header'
 import Footer from './layout/Footer'
 import Navigation from './layout/Navigation'
@@ -24,9 +23,6 @@ import bgImage from '../images/bg.jpg'
 
 function AppContent() {
   const location = useLocation()
-  
-  // Enable scroll-based navigation
-  useScrollNavigation()
 
   // Scroll to top on route change
   useEffect(() => {
