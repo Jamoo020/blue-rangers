@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import hm1 from '../../images/hm1.jpg'
 import bgPhoto from '../../images/enhanced_team_photo.jpg'
 import trainingSessionImage from '../../images/Training Session/WhatsApp Image 2026-04-20 at 11.27.28.jpeg'
+import newsData from '../data/content.json'
 
 export default function Home() {
   return (
@@ -93,15 +94,11 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="section-title">Latest News</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            {[
-              { title: 'First Training Session', desc: 'Our inaugural training session was a success!', image: trainingSessionImage },
-              { title: 'Trial Announcements', desc: 'Trials open for all age groups.', image: hm1 },
-              { title: 'New Player Signings', desc: 'Welcome our new players!', image: hm1 },
-            ].map((news, i) => (
+            {newsData.news.slice(0, 3).map((news, i) => (
               <div key={i} className="card-hover bg-white p-6 rounded-lg shadow">
-                <img src={news.image} alt={news.title} className="h-40 w-full object-cover rounded-lg mb-4" />
+                <img src={i === 0 ? trainingSessionImage : hm1} alt={news.title} className="h-40 w-full object-cover rounded-lg mb-4" />
                 <h3 className="font-bold text-lg mb-2">{news.title}</h3>
-                <p className="text-gray-600 mb-4">{news.desc}</p>
+                <p className="text-gray-600 mb-4">{news.excerpt || news.desc}</p>
                 <Link to="/news" className="text-blue-600 font-semibold hover:text-blue-800">Read More →</Link>
               </div>
             ))}
