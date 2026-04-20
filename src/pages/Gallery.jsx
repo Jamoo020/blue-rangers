@@ -120,7 +120,7 @@ export default function Gallery() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mt-10">
-            {activeSection === 'community-event' ? (
+            {activeImages.length > 0 ? (
               activeImages.map((src, idx) => (
                 <button
                   key={idx}
@@ -130,7 +130,7 @@ export default function Gallery() {
                 >
                   <img
                     src={src}
-                    alt={`Community event ${idx + 1}`}
+                    alt={`${sections.find((section) => section.id === activeSection)?.title} ${idx + 1}`}
                     className="h-56 w-full object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </button>
@@ -138,7 +138,7 @@ export default function Gallery() {
             ) : (
               <div className="col-span-full rounded-3xl border border-dashed border-white/30 bg-white/5 p-10 text-white/80">
                 <p className="text-xl font-semibold">No images available yet for this section.</p>
-                <p className="mt-3 text-white/70">Only the Community Event section currently contains uploaded photos.</p>
+                <p className="mt-3 text-white/70">Images will appear here once this gallery category has photos uploaded.</p>
               </div>
             )}
           </div>
