@@ -12,6 +12,10 @@ import communityImage9 from '../../images/Community Event/WhatsApp Image 2026-04
 import communityImage10 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.46.04.jpeg'
 import communityImage11 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.46.05.jpeg'
 import communityImage12 from '../../images/Community Event/WhatsApp Image 2026-04-19 at 12.46.06.jpeg'
+import trainingImage1 from '../../images/Training Session/WhatsApp Image 2026-04-20 at 11.27.28 (1).jpeg'
+import trainingImage2 from '../../images/Training Session/WhatsApp Image 2026-04-20 at 11.27.28.jpeg'
+import trainingImage3 from '../../images/Training Session/WhatsApp Image 2026-04-20 at 11.27.29 (1).jpeg'
+import trainingImage4 from '../../images/Training Session/WhatsApp Image 2026-04-20 at 11.27.29.jpeg'
 
 const communityImages = [
   communityImage1,
@@ -28,6 +32,13 @@ const communityImages = [
   communityImage12,
 ]
 
+const trainingImages = [
+  trainingImage1,
+  trainingImage2,
+  trainingImage3,
+  trainingImage4,
+]
+
 const sections = [
   { title: 'Training Session', id: 'training-session' },
   { title: 'Team Photo', id: 'team-photo' },
@@ -40,7 +51,12 @@ const sections = [
 export default function Gallery() {
   const [activeSection, setActiveSection] = useState('community-event')
   const [lightboxIndex, setLightboxIndex] = useState(null)
-  const activeImages = activeSection === 'community-event' ? communityImages : []
+  const activeImages =
+    activeSection === 'community-event'
+      ? communityImages
+      : activeSection === 'training-session'
+      ? trainingImages
+      : []
 
   function openLightbox(index) {
     setLightboxIndex(index)
@@ -97,9 +113,9 @@ export default function Gallery() {
           <div className="max-w-6xl mx-auto mt-10 text-center">
             <h3 className="section-title text-white">{sections.find((section) => section.id === activeSection)?.title}</h3>
             <p className="text-white/70 mt-2 max-w-3xl mx-auto">
-              {activeSection === 'community-event'
-                ? 'All Community Event images are shown below.'
-                : 'Images for this category will appear here once added.'}
+              {activeSection === 'community-event' && 'All Community Event images are shown below.'}
+              {activeSection === 'training-session' && 'All Training Session images are shown below.'}
+              {activeSection !== 'community-event' && activeSection !== 'training-session' && 'Images for this category will appear here once added.'}
             </p>
           </div>
 
@@ -140,7 +156,7 @@ export default function Gallery() {
 
                 <img
                   src={activeImages[lightboxIndex]}
-                  alt={`Community event ${lightboxIndex + 1}`}
+                  alt={`${sections.find((section) => section.id === activeSection)?.title} ${lightboxIndex + 1}`}
                   className="mx-auto max-h-[80vh] w-full rounded-3xl object-contain"
                 />
 
@@ -160,7 +176,7 @@ export default function Gallery() {
                 </button>
 
                 <div className="mt-4 text-center text-white/80">
-                  <p>Community Event {lightboxIndex + 1} of {activeImages.length}</p>
+                  <p>{sections.find((section) => section.id === activeSection)?.title} {lightboxIndex + 1} of {activeImages.length}</p>
                 </div>
               </div>
             </div>
