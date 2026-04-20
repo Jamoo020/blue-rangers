@@ -34,7 +34,6 @@ export default function Footer() {
             <h3 className="font-bold text-lg mb-4">Connect</h3>
             <ul className="space-y-2 text-gray-400">
               <li><Link to="/contact" className="hover:text-white transition">Contact</Link></li>
-              <li><Link to="/sponsors" className="hover:text-white transition">Sponsors</Link></li>
               <li><a href="#" className="hover:text-white transition">Facebook</a></li>
               <li><a href="#" className="hover:text-white transition">Twitter</a></li>
               <li><a href="https://www.instagram.com/bluerangersf/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Instagram</a></li>

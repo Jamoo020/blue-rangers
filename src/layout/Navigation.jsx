@@ -15,7 +15,6 @@ export default function Navigation() {
     { path: '/join', label: 'Join Us' },
     { path: '/news', label: 'News' },
     { path: '/gallery', label: 'Gallery' },
-    { path: '/sponsors', label: 'Sponsors' },
     { path: '/contact', label: 'Contact' },
   ]
 
