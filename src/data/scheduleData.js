@@ -31,4 +31,12 @@ export const scheduleMatches = [
     teams: 'Blue Rangers vs. City United',
     venue: 'Home Ground',
   },
+  {
+    date: '2026-05-28',
+    time: '17:00',
+    comp: 'Cup',
+    matchday: 'Semi-finals',
+    teams: 'Blue Rangers vs. Europa FC',
+    venue: 'Neutral Venue',
+  },
 ]
