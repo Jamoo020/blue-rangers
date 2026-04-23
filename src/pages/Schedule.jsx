@@ -1,10 +1,7 @@
+import { scheduleMatches } from '../data/scheduleData.js'
+
 export default function Schedule() {
-  const matches = [
-    { date: 'SAT 04 APR', time: '21:00', comp: 'La Liga', matchday: 'Matchday 30', teams: 'City United vs. New City FC' },
-    { date: 'WED 08 APR', time: '21:00', comp: 'Champions', matchday: 'Quarter-finals', teams: 'New City FC vs. Europa FC' },
-    { date: 'SAT 11 APR', time: '18:30', comp: 'La Liga', matchday: 'Matchday 31', teams: 'New City FC vs. Riverside' },
-    { date: 'TUE 14 APR', time: '21:00', comp: 'Cup', matchday: 'Semi-finals', teams: 'City United vs. New City FC' },
-  ]
+  const matches = [...scheduleMatches].sort((a, b) => new Date(a.date) - new Date(b.date))
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -13,7 +10,7 @@ export default function Schedule() {
       <div className="max-w-4xl mx-auto">
         <div className="bg-white rounded-lg shadow overflow-hidden">
           <div className="bg-gradient-to-r from-green-600 to-green-800 text-white p-6">
-            <h3 className="text-2xl font-bold">April 2026</h3>
+            <h3 className="text-2xl font-bold">Upcoming Fixtures</h3>
           </div>
           
           <div className="divide-y">

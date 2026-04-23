@@ -1,0 +1,34 @@
+export const scheduleMatches = [
+  {
+    date: '2026-04-30',
+    time: '18:00',
+    comp: 'Cup',
+    matchday: 'Quarter-finals',
+    teams: 'Blue Rangers vs. Coastal United',
+    venue: 'Home Ground',
+  },
+  {
+    date: '2026-05-07',
+    time: '16:00',
+    comp: 'League',
+    matchday: 'Matchday 32',
+    teams: 'Blue Rangers vs. Valley United',
+    venue: 'Away Stadium',
+  },
+  {
+    date: '2026-05-14',
+    time: '19:00',
+    comp: 'Friendly',
+    matchday: 'Spring Friendlies',
+    teams: 'Blue Rangers vs. Riverside FC',
+    venue: 'Riverside Pitch',
+  },
+  {
+    date: '2026-05-21',
+    time: '18:30',
+    comp: 'League',
+    matchday: 'Matchday 33',
+    teams: 'Blue Rangers vs. City United',
+    venue: 'Home Ground',
+  },
+]

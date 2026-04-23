@@ -3,8 +3,23 @@ import hm1 from '../../images/hm1.jpg'
 import bgPhoto from '../../images/enhanced_team_photo.jpg'
 import trainingSessionImage from '../../images/Training Session/WhatsApp Image 2026-04-20 at 11.27.28.jpeg'
 import newsData from '../data/content.json'
+import { scheduleMatches } from '../data/scheduleData.js'
 
 export default function Home() {
+  const now = new Date()
+  const upcomingMatches = scheduleMatches
+    .map((match) => ({ ...match, dateObj: new Date(match.date) }))
+    .filter((match) => match.dateObj >= now)
+    .sort((a, b) => a.dateObj - b.dateObj)
+  const nextMatch = upcomingMatches[0] || scheduleMatches[0]
+  const nextMatchDate = nextMatch?.dateObj
+    ? nextMatch.dateObj.toLocaleDateString('en-US', {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+      })
+    : ''
+
   return (
     <div>
       {/* Hero Section */}
@@ -79,9 +94,9 @@ export default function Home() {
       <section className="py-16 bg-blue-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Next Match</h2>
-          <div className="text-6xl font-bold mb-4">VS Local Rivals</div>
-          <p className="text-xl mb-4">Saturday, April 5th - 3:00 PM</p>
-          <p className="text-lg">Home Ground</p>
+          <div className="text-6xl font-bold mb-4">{nextMatch?.teams || 'Upcoming Fixture'}</div>
+          <p className="text-xl mb-4">{nextMatchDate} {nextMatch?.time ? `- ${nextMatch.time}` : ''}</p>
+          <p className="text-lg">{nextMatch?.venue || 'Home Ground'}</p>
           <a href="/schedule" className="inline-block mt-6 bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">View Schedule</a>
         </div>
       </section>
